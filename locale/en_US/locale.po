@@ -18,4 +18,4 @@ msgid "plugins.generic.deleteIncompleteSubmissions.displayName"
 msgstr "Delete incomplete submissions"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.description"
-msgstr "Allows editors to delete incomplete submissions trough the workflow." 
+msgstr "Allows editors to delete incomplete submissions through the journal's workflow." 
