@@ -15,11 +15,6 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
         return $success;
     }
 
-    public function getName(): string
-    {
-        return 'DeleteIncompleteSubmissionsPlugin';
-    }
-
     public function getDisplayName(): string
     {
         return __('plugins.generic.deleteIncompleteSubmissions.displayName');
@@ -30,23 +25,13 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
         return __('plugins.generic.deleteIncompleteSubmissions.description');
     }
 
-    public function manage($args, $request)
+    public function getCanEnable()
     {
-        switch ($request->getUserVar('verb')) {
-            case 'settings':
-                $this->import('form.DeleteIncompleteSubmissionsSettingsForm');
-                $form = new DeleteIncompleteSubmissionsSettingsForm($this);
+        return ((bool) Application::get()->getRequest()->getContext());
+    }
 
-                if ($request->getUserVar('save')) {
-                    $form->readInputData();
-                    if ($form->validate()) {
-                        $form->execute();
-                        return new JSONMessage(true);
-                    }
-                }
-                return new JSONMessage(true, $form->fetch($request));
-            default:
-                return parent::manage($verb, $args, $message, $messageParams);
-        }
+    public function getCanDisable()
+    {
+        return ((bool) Application::get()->getRequest()->getContext());
     }
 }
