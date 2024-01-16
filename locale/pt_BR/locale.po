@@ -18,4 +18,7 @@ msgid "plugins.generic.deleteIncompleteSubmissions.displayName"
 msgstr "Remover submissões incompletas"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.description"
-msgstr "Permite que editores excluam submissões incompletas através do Fluxo de trabalho." 
+msgstr "Permite que editores excluam submissões incompletas da revista."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
+msgstr "Submissões incompletas"

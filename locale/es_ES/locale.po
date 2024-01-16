@@ -18,4 +18,7 @@ msgid "plugins.generic.deleteIncompleteSubmissions.displayName"
 msgstr "Eliminar envíos incompletos"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.description"
-msgstr "Permite a los editores eliminar los envíos incompletos a través del flujo de trabajo de la revista."
+msgstr "Permite a los editores eliminar los envíos incompletos de la revista."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
+msgstr "Envíos incompletos"
