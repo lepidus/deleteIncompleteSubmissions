@@ -49,7 +49,7 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
         $dispatcher = $request->getDispatcher();
         $apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_submissions');
 
-        $lists = $templateMgr->getState('components');
+        $componentsState = $templateMgr->getState('components');
         $userRoles = $templateMgr->get_template_vars('userRoles');
 
         $includeAssignedEditorsFilter = array_intersect([ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER], $userRoles);
@@ -63,20 +63,18 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
             __('plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab'),
             [
                 'apiUrl' => $apiUrl,
+                'getParams' => [
+                    'isIncomplete' => true,
+                ],
                 'lazyLoad' => true,
                 'includeIssuesFilter' => $includeIssuesFilter,
                 'includeAssignedEditorsFilter' => $includeAssignedEditorsFilter,
                 'includeActiveSectionFiltersOnly' => true,
             ]
         );
-        $panelConfig = $incompleteListPanel->getConfig();
+        $componentsState[$incompleteListPanel->id] = $incompleteListPanel->getConfig();
 
-        $incompleteFilter = $panelConfig['filters'][0]['filters'][1];
-        $incompleteFilter['value'] = true;
-        $panelConfig['filters'][0]['filters'][1] = $incompleteFilter;
-
-        $lists[$incompleteListPanel->id] = $panelConfig;
-        $templateMgr->setState(['components' => $lists]);
+        $templateMgr->setState(['components' => $componentsState]);
 
         $templateMgr->registerFilter("output", array($this, 'incompleteSubmissionsTabFilter'));
 
