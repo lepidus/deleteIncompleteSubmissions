@@ -58,6 +58,8 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
             $userRoles
         );
 
+        $this->loadResources($request, $templateMgr);
+
         $incompleteListPanel = new \APP\components\listPanels\SubmissionsListPanel(
             'incompleteSubmissions',
             __('plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab'),
@@ -75,6 +77,7 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
         $componentsState[$incompleteListPanel->id] = $incompleteListPanel->getConfig();
 
         $templateMgr->setState(['components' => $componentsState]);
+
 
         $templateMgr->registerFilter("output", array($this, 'incompleteSubmissionsTabFilter'));
 
@@ -94,5 +97,19 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
             $templateMgr->unregisterFilter('output', array($this, 'incompleteSubmissionsTabFilter'));
         }
         return $output;
+    }
+
+    private function loadResources($request, $templateMgr)
+    {
+        $pluginFullPath = $request->getBaseUrl() . DIRECTORY_SEPARATOR . $this->getPluginPath();
+
+        $templateMgr->addJavaScript(
+            'incomplete-submissions-list-item',
+            $pluginFullPath . '/js/components/IncompleteSubmissionsListItem.js',
+            [
+                'priority' => STYLE_SEQUENCE_LAST,
+                'contexts' => ['backend']
+            ]
+        );
     }
 }
