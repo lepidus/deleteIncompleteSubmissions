@@ -7,11 +7,6 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
     public function register($category, $path, $mainContextId = null)
     {
         $success = parent::register($category, $path);
-
-        if ($success && $this->getEnabled()) {
-            HookRegistry::register('TemplateManager::display', [$this, 'addIncompleteSubmissionsTab']);
-        }
-
         return $success;
     }
 
@@ -35,81 +30,41 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
         return ((bool) Application::get()->getRequest()->getContext());
     }
 
-    public function addIncompleteSubmissionsTab($hookName, $params)
+    public function getActions($request, $actionArgs)
     {
-        $templateMgr = $params[0];
-        $template = $params[1];
-
-        if ($template !== 'dashboard/index.tpl') {
-            return false;
-        }
-
-        $request = Application::get()->getRequest();
-        $context = $request->getContext();
-        $dispatcher = $request->getDispatcher();
-        $apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_submissions');
-
-        $componentsState = $templateMgr->getState('components');
-        $userRoles = $templateMgr->get_template_vars('userRoles');
-
-        $includeAssignedEditorsFilter = array_intersect([ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER], $userRoles);
-        $includeIssuesFilter = array_intersect(
-            [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
-            $userRoles
+        $router = $request->getRouter();
+        import('lib.pkp.classes.linkAction.request.AjaxModal');
+        return array_merge(
+            array(
+                new LinkAction(
+                    'settings',
+                    new AjaxModal($router->url($request, null, null, 'manage', null, array('verb' => 'settings', 'plugin' => $this->getName(), 'category' => 'generic')), $this->getDisplayName()),
+                    __('manager.plugins.settings'),
+                )
+            ),
+            parent::getActions($request, $actionArgs)
         );
-
-        $this->loadResources($request, $templateMgr);
-
-        $incompleteListPanel = new \APP\components\listPanels\SubmissionsListPanel(
-            'incompleteSubmissions',
-            __('plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab'),
-            [
-                'apiUrl' => $apiUrl,
-                'getParams' => [
-                    'isIncomplete' => true,
-                ],
-                'lazyLoad' => true,
-                'includeIssuesFilter' => $includeIssuesFilter,
-                'includeAssignedEditorsFilter' => $includeAssignedEditorsFilter,
-                'includeActiveSectionFiltersOnly' => true,
-            ]
-        );
-        $componentsState[$incompleteListPanel->id] = $incompleteListPanel->getConfig();
-
-        $templateMgr->setState(['components' => $componentsState]);
-
-
-        $templateMgr->registerFilter("output", array($this, 'incompleteSubmissionsTabFilter'));
-
-        return false;
     }
 
-    public function incompleteSubmissionsTabFilter($output, $templateMgr)
+    public function manage($args, $request)
     {
-        if (preg_match('/<\/tab[^>]+>/', $output, $matches, PREG_OFFSET_CAPTURE)) {
-            $match = $matches[0][0];
-            $offset = $matches[0][1];
+        switch ($request->getUserVar('verb')) {
+            case 'settings':
+                $context = $request->getContext();
+                $this->import('form.DeleteIncompleteSubmissionsSettingsForm');
+                $form = new DeleteIncompleteSubmissionsSettingsForm($this, $context->getId());
 
-            $newOutput = substr($output, 0, $offset);
-            $newOutput .= $templateMgr->fetch($this->getTemplateResource('incompleteSubmissionsTab.tpl'));
-            $newOutput .= substr($output, $offset);
-            $output = $newOutput;
-            $templateMgr->unregisterFilter('output', array($this, 'incompleteSubmissionsTabFilter'));
+                if ($request->getUserVar('save')) {
+                    $form->readInputData();
+                    if ($form->validate()) {
+                        $form->execute();
+                        return new JSONMessage(true);
+                    }
+                }
+
+                return new JSONMessage(true, $form->fetch($request));
+            default:
+                return parent::manage($verb, $args, $message, $messageParams);
         }
-        return $output;
-    }
-
-    private function loadResources($request, $templateMgr)
-    {
-        $pluginFullPath = $request->getBaseUrl() . DIRECTORY_SEPARATOR . $this->getPluginPath();
-
-        $templateMgr->addJavaScript(
-            'incomplete-submissions-list-item',
-            $pluginFullPath . '/js/components/IncompleteSubmissionsListItem.js',
-            [
-                'priority' => STYLE_SEQUENCE_LAST,
-                'contexts' => ['backend']
-            ]
-        );
     }
 }
