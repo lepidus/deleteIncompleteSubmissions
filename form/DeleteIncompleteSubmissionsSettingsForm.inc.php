@@ -38,7 +38,7 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('pluginName', $this->plugin->getName());
         $templateMgr->assign('applicationName', Application::get()->getName());
-        $templateMgr->assign('thresholdValues', range(1, 45));
+        $templateMgr->assign('thresholdValues', range(0, 45));
 
         return parent::fetch($request, $template, $display);
     }
