@@ -38,7 +38,7 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('pluginName', $this->plugin->getName());
         $templateMgr->assign('applicationName', Application::get()->getName());
-        $templateMgr->assign('thresholdValues', range(1, 30));
+        $templateMgr->assign('thresholdValues', range(1, 45));
 
         return parent::fetch($request, $template, $display);
     }
@@ -67,11 +67,9 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
                 $submissionService->delete($submission);
                 $deleted++;
             } catch (\Throwable $th) {
-                error_log("Nao foi possivel excluir a submissao:" . $submission->getId() . "\n" . $th->getMessage());
+                error_log('The submission  ' . $submission->getId() . ' was not deleted. Reason:' . $th->getMessage());
             }
         }
-        error_log("Foram excluidas " . $deleted . " submissoes.\n");
-
         return $deleted;
     }
 }

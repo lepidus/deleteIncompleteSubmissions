@@ -37,9 +37,9 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
         return array_merge(
             array(
                 new LinkAction(
-                    'settings',
-                    new AjaxModal($router->url($request, null, null, 'manage', null, array('verb' => 'settings', 'plugin' => $this->getName(), 'category' => 'generic')), $this->getDisplayName()),
-                    __('manager.plugins.settings'),
+                    'multipleDeletion',
+                    new AjaxModal($router->url($request, null, null, 'manage', null, array('verb' => 'multipleDeletion', 'plugin' => $this->getName(), 'category' => 'generic')), $this->getDisplayName()),
+                    __('plugins.generic.deleteIncompleteSubmissions.multipleDeletion'),
                 )
             ),
             parent::getActions($request, $actionArgs)
@@ -49,7 +49,7 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
     public function manage($args, $request)
     {
         switch ($request->getUserVar('verb')) {
-            case 'settings':
+            case 'multipleDeletion':
                 $context = $request->getContext();
                 $this->import('form.DeleteIncompleteSubmissionsSettingsForm');
                 $form = new DeleteIncompleteSubmissionsSettingsForm($this, $context->getId());
