@@ -16,7 +16,7 @@
         {fbvFormArea id="deleteIncompleteSubmissionsSettingsFormArea"}
 
         {fbvFormSection list="true"}
-        {fbvElement type="select" name="deletionThreshold" id="deletionThreshold" from=$thresholdValues label="plugins.generic.deleteIncompleteSubmissions.deletion.threshold" translate="0" size=$fbvStyles.size.SMALL}
+        {fbvElement type="select" name="deletionThreshold" id="deletionThreshold" from=$thresholdValues selected=$defaultThreshold label="plugins.generic.deleteIncompleteSubmissions.deletion.threshold" translate="0" size=$fbvStyles.size.SMALL}
 
         {fbvFormButtons id="deleteIncompleteSubmissionsSettingsFormSubmit" submitText="common.delete"}
 

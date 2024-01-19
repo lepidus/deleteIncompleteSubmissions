@@ -38,7 +38,8 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('pluginName', $this->plugin->getName());
         $templateMgr->assign('applicationName', Application::get()->getName());
-        $templateMgr->assign('thresholdValues', range(15, 60));
+        $templateMgr->assign('thresholdValues', range(0, 60));
+        $templateMgr->assign('defaultThreshold', 15);
 
         return parent::fetch($request, $template, $display);
     }
@@ -50,13 +51,12 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
 
         $deletionThreshold = $this->getData('deletionThreshold');
 
-        $numDeleted = $this->deleteIncompleteSubmissions($deletionThreshold);
+        $this->deleteIncompleteSubmissions($deletionThreshold);
         parent::execute(...$functionArgs);
     }
 
-    private function deleteIncompleteSubmissions(int $deletionThreshold): int
+    private function deleteIncompleteSubmissions(int $deletionThreshold): void
     {
-        $deleted = 0;
         $submissionService = Services::get('submission');
         $submissions = $submissionService->getMany([
             'contextId' => $this->contextId, 'isIncomplete' => true, 'daysInactive' => $deletionThreshold
@@ -65,11 +65,9 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         foreach ($submissions as $submission) {
             try {
                 $submissionService->delete($submission);
-                $deleted++;
             } catch (\Throwable $th) {
                 error_log('The submission  ' . $submission->getId() . ' was not deleted. Reason:' . $th->getMessage());
             }
         }
-        return $deleted;
     }
 }
