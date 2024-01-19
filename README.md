@@ -15,4 +15,4 @@ Upload it in the `Website > Plugins` section of the Dashboard.
 # License
 
 This plugin is licensed under the GNU General Public License v3. Read the complete [LICENSE file](LICENSE).
-Copyright (c) 2022 Lepidus Tecnologia
+Copyright (c) 2024 Lepidus Tecnologia
