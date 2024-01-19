@@ -23,12 +23,11 @@ msgstr "Permite que editores excluam submissões incompletas da revista."
 msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
 msgstr "Submissões incompletas"
 
-msgid "plugins.generic.deleteIncompleteSubmissions.multipleDeletion.description"
-msgstr "Defina o número de dias que uma submissão incompleta deve ter ficado inativa para ser excluída do sistema. "
-"Após isso, clique em \"Excluir\" para realizar a exclusão."
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
+msgstr "Para evitar excluir submissões que estão sendo feitas agora, ou que foram salvas para serem concluídas em breve, você deve definir o tempo que eles devem estar sem atividade para serem excluídas."
 
-msgid "plugins.generic.deleteIncompleteSubmissions.multipleDeletion.deletionThreshold"
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
 msgstr "Limite de exclusão em dias"
 
-msgid "plugins.generic.deleteIncompleteSubmissions.multipleDeletion"
-msgstr "Exclusão múltipla"
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
+msgstr "Remover submissões..."

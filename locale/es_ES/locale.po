@@ -23,12 +23,11 @@ msgstr "Permite a los editores eliminar los envíos incompletos de la revista."
 msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
 msgstr "Envíos incompletos"
 
-msgid "plugins.generic.deleteIncompleteSubmissions.multipleDeletion.description"
-msgstr "Establezca la cantidad de días que un envío incompleto debe haber estado inactivo para ser eliminado del sistema. " 
-"Después de eso, haga clic en \"Eliminar\" para realizar la eliminación."
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
+msgstr "Para evitar eliminar envíos que se están realizando ahora o que se han guardado para completarse pronto, debe establecer la cantidad de tiempo que deben estar inactivos para que se eliminen." 
 
-msgid "plugins.generic.deleteIncompleteSubmissions.multipleDeletion.deletionThreshold"
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
 msgstr "Límite de exclusión en días"
 
-msgid "plugins.generic.deleteIncompleteSubmissions.multipleDeletion"
-msgstr "Exclusión múltiple"
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
+msgstr "Eliminar envíos..."

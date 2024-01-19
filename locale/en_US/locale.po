@@ -23,12 +23,11 @@ msgstr "Allows editors to delete incomplete submissions from the journal."
 msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
 msgstr "Incomplete submissions"
 
-msgid "plugins.generic.deleteIncompleteSubmissions.multipleDeletion.description"
-msgstr "Set the number of days an incomplete submission must have been inactive before it can be deleted from the system. "
-"Then click on \"Delete\" to carry out the deletion."
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
+msgstr "To avoid deleting submissions that are being made now, or that have been saved to be completed soon, you must set the amount of time they must be idle for them to be deleted."
 
-msgid "plugins.generic.deleteIncompleteSubmissions.multipleDeletion.deletionThreshold"
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
 msgstr "Deletion threshold in days"
 
-msgid "plugins.generic.deleteIncompleteSubmissions.multipleDeletion"
-msgstr "Multiple deletion"
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
+msgstr "Delete submissions..."
