@@ -21,13 +21,6 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         $this->addCheck(new FormValidatorCSRF($this));
     }
 
-    public function initData()
-    {
-        $contextId = $this->contextId;
-        $plugin = &$this->plugin;
-        $this->_data = array();
-    }
-
     public function readInputData()
     {
         $this->readUserVars(array_keys(self::FORM_VARS));
@@ -46,9 +39,6 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
 
     public function execute(...$functionArgs)
     {
-        $plugin = &$this->plugin;
-        $contextId = $this->contextId;
-
         $deletionThreshold = $this->getData('deletionThreshold');
 
         $this->deleteIncompleteSubmissions($deletionThreshold);
