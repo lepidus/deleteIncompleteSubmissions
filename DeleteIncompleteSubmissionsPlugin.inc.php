@@ -35,13 +35,13 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
         $router = $request->getRouter();
         import('lib.pkp.classes.linkAction.request.AjaxModal');
         return array_merge(
-            array(
+            $this->getEnabled() ? [
                 new LinkAction(
                     'deletion',
                     new AjaxModal($router->url($request, null, null, 'manage', null, array('verb' => 'deletion', 'plugin' => $this->getName(), 'category' => 'generic')), $this->getDisplayName()),
                     __('plugins.generic.deleteIncompleteSubmissions.deletion'),
                 )
-            ),
+            ] : [],
             parent::getActions($request, $actionArgs)
         );
     }

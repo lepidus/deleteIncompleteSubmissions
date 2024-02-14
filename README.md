@@ -14,11 +14,11 @@ Upload the package in the `Website > Plugins` section of the Dashboard.
 
 # Usage
 
-After installing the plugin, it will appear in the plugins list, from there, expand the options of the plugin and click on the `Delete submissions...` option:
+After installing the plugin, it will appear in the plugins list, from there, activate the plugin, then expand the options in the arrow, and click on the `Delete submissions...` option:
 
 ![](screenshots/plugin-options.png)
 
-From the open modal, editors will be able to delete incomplete submissions from the journal, and set a deletion threshold, in days, to safeguard the deletion of submissions that are not meant to be deleted at the moment.
+From the open modal, editors will be able to delete incomplete submissions from the journal, and set a deletion threshold, in days, to safeguard the deletion of submissions that are not meant to be deleted at the moment:
 
 ![](screenshots/delete-submissions-modal.png)
 
