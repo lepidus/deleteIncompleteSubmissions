@@ -8,11 +8,22 @@ This plugin is compatible with OJS 3.3.0
 
 # Installation
 
-Download the `tar.gz` under Releases. 
+Download the `deleteIncompleteSubmissions.tar.gz` package under the '[Releases](https://github.com/lepidus/deleteIncompleteSubmissions/releases)' tab of this repository.
 
-Upload it in the `Website > Plugins` section of the Dashboard.
+Upload the package in the `Website > Plugins` section of the Dashboard.
+
+# Usage
+
+After installing the plugin, it will appear in the plugins list, from there, expand the options of the plugin and click on the `Delete submissions...` option:
+
+![](screenshots/plugin-options.png)
+
+From the open modal, editors will be able to delete incomplete submissions from the journal, and set a deletion threshold, in days, to safeguard the deletion of submissions that are not meant to be deleted at the moment.
+
+![](screenshots/delete-submissions-modal.png)
 
 # License
 
 This plugin is licensed under the GNU General Public License v3. Read the complete [LICENSE file](LICENSE).
-Copyright (c) 2024 Lepidus Tecnologia
+
+*Copyright (c) 2024 Lepidus Tecnologia*
