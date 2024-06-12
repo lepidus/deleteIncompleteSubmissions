@@ -1,6 +1,14 @@
 <?php
 
-import('lib.pkp.classes.form.Form');
+namespace APP\plugins\generic\deleteIncompleteSubmissions\settings;
+
+use APP\template\TemplateManager;
+use PKP\form\Form;
+use PKP\form\validation\FormValidatorCSRF;
+use PKP\form\validation\FormValidatorPost;
+use APP\core\Application;
+use APP\core\Services;
+use APP\plugins\generic\deleteIncompleteSubmissions\DeleteIncompleteSubmissionsPlugin;
 
 class DeleteIncompleteSubmissionsSettingsForm extends Form
 {

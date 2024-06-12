@@ -1,6 +1,24 @@
 <?php
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+/**
+ * @file plugins/generic/deleteIncompleteSubmissions/deleteIncompleteSubmissions.php
+ *
+ * Copyright (c) 2024 Lepidus Tecnologia
+ * Distributed under the GNU GPL v3. For full terms see LICENSE or https://www.gnu.org/licenses/gpl-3.0.txt
+ *
+ * @class DeleteIncompleteSubmissionsPlugin
+ * @ingroup plugins_generic_deleteIncompleteSubmissions
+ *
+ */
+
+namespace APP\plugins\generic\deleteIncompleteSubmissions;
+
+use PKP\plugins\GenericPlugin;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
+use APP\core\Application;
+use PKP\core\JSONMessage;
+use APP\plugins\generic\deleteIncompleteSubmissions\settings\DeleteIncompleteSubmissionsSettingsForm;
 
 class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
 {
@@ -33,7 +51,6 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
     public function getActions($request, $actionArgs)
     {
         $router = $request->getRouter();
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         return array_merge(
             $this->getEnabled() ? [
                 new LinkAction(
@@ -51,7 +68,6 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
         switch ($request->getUserVar('verb')) {
             case 'deletion':
                 $context = $request->getContext();
-                $this->import('form.DeleteIncompleteSubmissionsSettingsForm');
                 $form = new DeleteIncompleteSubmissionsSettingsForm($this, $context->getId());
 
                 if ($request->getUserVar('save')) {
