@@ -1,6 +1,13 @@
 <?php
 
-import('lib.pkp.classes.form.Form');
+namespace APP\plugins\generic\deleteIncompleteSubmissions\settings;
+
+use APP\template\TemplateManager;
+use PKP\form\Form;
+use PKP\form\validation\FormValidatorCSRF;
+use PKP\form\validation\FormValidatorPost;
+use APP\core\Application;
+use APP\facades\Repo;
 
 class DeleteIncompleteSubmissionsSettingsForm extends Form
 {
@@ -47,17 +54,19 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
 
     private function deleteIncompleteSubmissions(int $deletionThreshold): void
     {
-        $submissionService = Services::get('submission');
-        $submissions = $submissionService->getMany([
-            'contextId' => $this->contextId, 'isIncomplete' => true, 'daysInactive' => $deletionThreshold
-        ]);
+        $submissions = Repo::submission()
+            ->getCollector()
+            ->filterByContextIds([$this->contextId])
+            ->filterByIncomplete(true)
+            ->filterByDaysInactive($deletionThreshold)
+            ->getMany();
 
-        foreach ($submissions as $submission) {
-            try {
-                $submissionService->delete($submission);
-            } catch (\Throwable $th) {
-                error_log('The submission  ' . $submission->getId() . ' was not deleted. Reason:' . $th->getMessage());
+        try {
+            foreach ($submissions as $submission) {
+                Repo::submission()->delete($submission);
             }
+        } catch (\Throwable $th) {
+            error_log('The submission  ' . $submission->getId() . ' was not deleted. Reason:' . $th->getMessage());
         }
     }
 }
