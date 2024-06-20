@@ -2,9 +2,13 @@
 
 This plugin allows editors to delete incomplete submissions from the journal.
 
+It allows the editor to set a threshold, in days, to safeguard the deletion of submissions that are not meant to be deleted at the moment.
+
 # Compatibility
 
-This plugin is compatible with OJS 3.3.0
+This plugin is compatible with **OJS 3.4.0**
+
+For compatibility with other versions of OJS, please refer to this repository branches.
 
 # Installation
 
@@ -14,7 +18,7 @@ Upload the package in the `Website > Plugins` section of the Dashboard.
 
 # Usage
 
-After installing the plugin, it will appear in the plugins list, from there, activate the plugin, then expand the options in the arrow, and click on the `Delete submissions...` option:
+After installing the plugin, it will appear in the plugins list, from there, activate the plugin, then expand the options in the arrow, and click on the ***`Delete submissions...`*** action:
 
 ![](screenshots/plugin-options.png)
 
