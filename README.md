@@ -6,9 +6,12 @@ It allows the editor to set a threshold, in days, to safeguard the deletion of s
 
 # Compatibility
 
-This plugin is compatible with **OJS 3.4.0**
+This plugin is compatible with the following PKP applications:
 
-For compatibility with other versions of OJS, please refer to this repository branches.
+- OJS 3.4.0
+- OPS 3.4.0
+
+For compatibility with other versions of OJS/OPS, please refer to this repository branches.
 
 # Installation
 
