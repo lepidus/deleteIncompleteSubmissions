@@ -6,28 +6,27 @@ msgstr ""
 "PO-Revision-Date: 2024-01-12 00:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: en_US\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-
 msgid "plugins.generic.deleteIncompleteSubmissions.displayName"
-msgstr "Delete incomplete submissions"
+msgstr "Supprimer les soumissions incomplètes" 
 
 msgid "plugins.generic.deleteIncompleteSubmissions.description"
-msgstr "Allows editors to delete incomplete submissions from the journal." 
+msgstr "Permet aux éditeurs de supprimer les soumissions incomplètes de la revue."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
-msgstr "Incomplete submissions"
+msgstr "Soumissions incomplètes"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
-msgstr "To avoid deleting submissions that are being made now, or that have been saved to be completed soon, you must set the amount of time they must be idle for them to be deleted."
+msgstr "Pour éviter de supprimer des soumissions qui sont en cours ou qui ont été sauvegardées pour être terminées bientôt, vous devez définir le temps d'inactivité nécessaire pour qu'elles soient supprimées."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
-msgstr "Deletion threshold in days"
+msgstr "Seuil de suppression en jours"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
-msgstr "Delete submissions..."
+msgstr "Supprimer les soumissions..."
