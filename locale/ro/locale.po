@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-12 00:00+0000\n"
-"PO-Revision-Date: 2024-01-12 00:00+0000\n"
+"PO-Revision-Date: 2025-03-10 00:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ro\n"
@@ -14,20 +14,20 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.displayName"
-msgstr "Ștergeți trimiterile incomplete"
+msgstr "Ștergeți înregistrările incomplete"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.description"
-msgstr "Permite editorilor să șteargă trimiterile incomplete din revistă."
+msgstr "Permite editorilor să șteargă înregistrările incomplete din revistă."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
-msgstr "Înscrieri incomplete"
+msgstr "Înregistrări incomplete"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
-msgstr "Pentru a evita ștergerea trimiterilor care sunt făcute acum sau care au fost salvate pentru a fi finalizate în curând, trebuie să setați perioada de timp în care acestea trebuie să fie inactive pentru a fi șterse."
+msgstr "Pentru a evita ștergerea înregistrările care sunt făcute acum sau care au fost salvate pentru a fi finalizate în curând, trebuie să setați perioada de timp în care acestea trebuie să fie inactive pentru a fi șterse."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
-msgstr "Prag de ștergere în zile"
+msgstr "Termen de ștergere în zile"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
-msgstr "Ștergere depuneri..."
+msgstr "Ștergere înregistrări..."
 

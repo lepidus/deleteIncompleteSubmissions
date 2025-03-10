@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-12 00:00+0000\n"
-"PO-Revision-Date: 2024-01-12 00:00+0000\n"
+"PO-Revision-Date: 2025-03-10 00:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -15,19 +15,19 @@ msgstr ""
 
 
 msgid "plugins.generic.deleteIncompleteSubmissions.displayName"
-msgstr "Unvollständige Einreichungen löschen"
+msgstr "Unvollständigen Beitrag löschen"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.description"
-msgstr "Ermöglicht es Redakteur*innen, unvollständige Einreichungen aus der Zeitschrift zu löschen." 
+msgstr "Ermöglicht es Redakteur*innen, unvollständige Beiträge aus der Zeitschrift zu löschen." 
 
 msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
-msgstr "Unvollständige Einreichungen"
+msgstr "Unvollständige Beiträge"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
-msgstr "Um zu vermeiden, dass Einreichungen gelöscht werden, die gerade gemacht werden oder  zwischengespeichert wurden, müssen Sie die Zeitspanne festlegen, bevor sie gelöscht werden."
+msgstr "Um zu vermeiden, dass Beiträge gelöscht werden, die gerade gemacht werden oder zwischengespeichert wurden, müssen Sie die Zeitspanne festlegen, bevor sie gelöscht werden."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
 msgstr "Frist für die Löschung in Tagen"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
-msgstr "Einreichungen löschen..."
+msgstr "Beiträge löschen..."

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-12 00:00+0000\n"
-"PO-Revision-Date: 2024-01-12 00:00+0000\n"
+"PO-Revision-Date: 2025-03-10 00:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -14,19 +14,19 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.displayName"
-msgstr "Cancellare gli invii incompleti"
+msgstr "Cancellare gli Proposte incompleti"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.description"
 msgstr "Consente ai redattori di eliminare i contributi incompleti dalla rivista."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
-msgstr "Invii incompleti".
+msgstr "Proposte incompleti".
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
-msgstr "Per evitare di cancellare gli invii che sono in corso o che sono stati salvati per essere completati a breve, è necessario impostare il periodo di tempo in cui devono rimanere inattivi per essere cancellati."
+msgstr "Per evitare di cancellare gli Proposte che sono in corso o che sono stati salvati per essere completati a breve, è necessario impostare il periodo di tempo in cui devono rimanere inattivi per essere cancellati."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
 msgstr "Soglia di cancellazione in giorni"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
-msgstr "Cancellare gli invii..."
+msgstr "Cancellare gli Proposte..."
