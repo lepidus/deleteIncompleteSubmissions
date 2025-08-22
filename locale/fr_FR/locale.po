@@ -23,8 +23,16 @@ msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
 msgstr "Soumissions incomplètes"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
-msgstr "Pour éviter de supprimer des soumissions qui sont en cours ou qui ont été sauvegardées pour être terminées bientôt, vous devez définir le temps d'inactivité nécessaire pour qu'elles soient supprimées."
+msgstr "Définissez combien de jours les soumissions incomplètes doivent rester inactives avant d'être supprimées."
 
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.title"
+msgstr "Important:"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.one"
+msgstr "Des périodes courtes peuvent entraîner la suppression de soumissions encore en cours."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.two"
+msgstr "Les soumissions ne seront supprimées que lorsque vous effectuerez cette action. Faites-le régulièrement si nécessaire."
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
 msgstr "Seuil de suppression en jours"
 

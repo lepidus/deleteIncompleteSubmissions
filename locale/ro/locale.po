@@ -23,7 +23,16 @@ msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
 msgstr "Înregistrări incomplete"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
-msgstr "Pentru a evita ștergerea înregistrările care sunt făcute acum sau care au fost salvate pentru a fi finalizate în curând, trebuie să setați perioada de timp în care acestea trebuie să fie inactive pentru a fi șterse."
+msgstr "Stabiliți câte zile trebuie să fie inactive înregistrările incomplete înainte de a fi șterse."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.title"
+msgstr "Important:"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.one"
+msgstr "Perioadele scurte pot duce la ștergerea înregistrărilor care sunt încă în curs de completare."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.two"
+msgstr "Înregistrările vor fi șterse doar când efectuați această acțiune. Efectuați-o periodic, dacă este necesar."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
 msgstr "Termen de ștergere în zile"
