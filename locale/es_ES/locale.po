@@ -24,7 +24,16 @@ msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
 msgstr "Envíos incompletos"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
-msgstr "Para evitar eliminar envíos que se están realizando ahora o que se han guardado para completarse pronto, debe establecer la cantidad de tiempo que deben estar inactivos para que se eliminen." 
+msgstr "Defina cuántos días deben permanecer inactivos los envíos incompletos para ser eliminados."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.title"
+msgstr "Importante:"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.one"
+msgstr "Los plazos muy cortos pueden dar lugar a la exclusión de envíos que aún están en curso."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.two"
+msgstr "Los envíos solo se eliminarán cuando usted realice esta acción. Realícela periódicamente, si lo considera necesario."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
 msgstr "Límite de exclusión en días"
