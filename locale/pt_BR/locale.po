@@ -24,7 +24,16 @@ msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
 msgstr "Submissões incompletas"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
-msgstr "Para evitar excluir submissões que estão sendo feitas agora, ou que foram salvas para serem concluídas em breve, você deve definir o tempo que elas devem estar sem atividade para serem excluídas."
+msgstr "Defina há quantos dias as submissões incompletas devem estar sem atividade para serem excluídas"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.title"
+msgstr "Importante:"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.one"
+msgstr "Períodos muito curtos podem levar à exclusão de submissões que ainda estão em andamento."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.two"
+msgstr "As submissões serão excluídas apenas quando você executar esta ação. Execute periodicamente, se considerar necessário."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
 msgstr "Limite de exclusão em dias"

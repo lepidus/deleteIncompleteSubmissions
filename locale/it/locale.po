@@ -23,7 +23,16 @@ msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
 msgstr "Proposte incompleti".
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
-msgstr "Per evitare di cancellare gli Proposte che sono in corso o che sono stati salvati per essere completati a breve, è necessario impostare il periodo di tempo in cui devono rimanere inattivi per essere cancellati."
+msgstr "Imposta dopo quanti giorni di inattività le proposte incomplete devono essere eliminate."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.title"
+msgstr "Importante:"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.one"
+msgstr "Periodi brevi possono portare all'eliminazione di proposte ancora in corso."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.two"
+msgstr "Le proposte verranno eliminate solo quando esegui questa azione. Eseguila periodicamente, se necessario."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
 msgstr "Soglia di cancellazione in giorni"

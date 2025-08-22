@@ -5,7 +5,13 @@
 </script>
 
 <div id="plnSettings">
-    <div id="description">{translate key="plugins.generic.deleteIncompleteSubmissions.deletion.description"}
+    <div id="description">
+        <p>{translate key="plugins.generic.deleteIncompleteSubmissions.deletion.description"}</p>
+        <p>{translate key="plugins.generic.deleteIncompleteSubmissions.deletion.warning.title"}</p>
+        <ul>
+            <li>{translate key="plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.one"}</li>
+            <li>{translate key="plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.two"}</li>
+        </ul>
     </div>
     <br>
     <form class="pkp_form" id="deleteIncompleteSubmissionsSettingsForm" method="post"

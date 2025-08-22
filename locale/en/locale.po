@@ -24,7 +24,16 @@ msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
 msgstr "Incomplete submissions"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
-msgstr "To avoid deleting submissions that are being made now, or that have been saved to be completed soon, you must set the amount of time they must be idle for them to be deleted."
+msgstr "Set how many days incomplete submissions must be inactive before they are deleted."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.title"
+msgstr "Important:"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.one"
+msgstr "Short periods of time may lead to the deletion of submissions that are still in progress."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.two"
+msgstr "The submissions will only be deleted when you perform this action. Perform it periodically, if necessary."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
 msgstr "Deletion threshold in days"
