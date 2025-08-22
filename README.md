@@ -4,7 +4,10 @@ This plugin allows editors to delete incomplete submissions from the journal.
 
 # Compatibility
 
-This plugin is compatible with OJS 3.3.0
+This plugin is compatible with the following PKP applications:
+
+- OJS 3.3.0
+- OPS 3.3.0
 
 # Installation
 
