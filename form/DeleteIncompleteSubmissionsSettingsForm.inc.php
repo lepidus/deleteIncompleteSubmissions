@@ -25,7 +25,15 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
             'required',
             'plugins.generic.deleteIncompleteSubmissions.validation.integer',
             function ($deletionThreshold) {
-                return is_int($deletionThreshold) && $deletionThreshold >= 0;
+                if (is_int($deletionThreshold)) {
+                    return $deletionThreshold > 0;
+                }
+
+                if (!is_string($deletionThreshold) || !preg_match('/^\d+$/', $deletionThreshold)) {
+                    return false;
+                }
+
+                return (int) $deletionThreshold > 0;
             }
         ));
     }
