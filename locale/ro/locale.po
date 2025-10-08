@@ -40,3 +40,12 @@ msgstr "Termen de ștergere în zile"
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
 msgstr "Ștergere înregistrări..."
 
+msgid "plugins.generic.deleteIncompleteSubmissions.deletionLabelPrefix"
+msgstr "Șterge toate transmiterile incomplete fără activitate de mai mult de"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletionLabelSuffix"
+msgstr "zile."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.validation.integer"
+msgstr "Valoarea pragului de ștergere trebuie să fie un număr întreg pozitiv."
+

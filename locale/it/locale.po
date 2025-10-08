@@ -39,3 +39,12 @@ msgstr "Soglia di cancellazione in giorni"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
 msgstr "Cancellare gli Proposte..."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletionLabelPrefix"
+msgstr "Elimina tutte le proposte incomplete senza attività da più di"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletionLabelSuffix"
+msgstr "giorni."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.validation.integer"
+msgstr "Il valore della soglia di eliminazione deve essere un numero intero positivo."

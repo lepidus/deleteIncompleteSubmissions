@@ -18,7 +18,7 @@ msgid "plugins.generic.deleteIncompleteSubmissions.displayName"
 msgstr "Unvollständigen Beitrag löschen"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.description"
-msgstr "Ermöglicht es Redakteur*innen, unvollständige Beiträge aus der Zeitschrift zu löschen." 
+msgstr "Ermöglicht es Redakteur*innen, unvollständige Beiträge aus der Zeitschrift zu löschen."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
 msgstr "Unvollständige Beiträge"
@@ -40,3 +40,12 @@ msgstr "Frist für die Löschung in Tagen"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
 msgstr "Beiträge löschen..."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletionLabelPrefix"
+msgstr "Alle unvollständigen Beiträge ohne Aktivität seit mehr als"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletionLabelSuffix"
+msgstr "Tagen."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.validation.integer"
+msgstr "Der Wert für die Löschfrist muss eine positive ganze Zahl sein."
