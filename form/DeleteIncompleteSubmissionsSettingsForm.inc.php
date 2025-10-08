@@ -19,6 +19,23 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
 
         $this->addCheck(new FormValidatorPost($this));
         $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new FormValidatorCustom(
+            $this,
+            'deletionThreshold',
+            'required',
+            'plugins.generic.deleteIncompleteSubmissions.validation.integer',
+            function ($deletionThreshold) {
+                if (is_int($deletionThreshold)) {
+                    return $deletionThreshold > 0;
+                }
+
+                if (!is_string($deletionThreshold) || !preg_match('/^\d+$/', $deletionThreshold)) {
+                    return false;
+                }
+
+                return (int) $deletionThreshold > 0;
+            }
+        ));
     }
 
     public function readInputData()
@@ -31,7 +48,6 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('pluginName', $this->plugin->getName());
         $templateMgr->assign('applicationName', Application::get()->getName());
-        $templateMgr->assign('thresholdValues', range(0, 60));
         $templateMgr->assign('defaultThreshold', 15);
 
         return parent::fetch($request, $template, $display);

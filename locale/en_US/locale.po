@@ -18,7 +18,7 @@ msgid "plugins.generic.deleteIncompleteSubmissions.displayName"
 msgstr "Delete incomplete submissions"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.description"
-msgstr "Allows editors to delete incomplete submissions from the journal." 
+msgstr "Allows editors to delete incomplete submissions from the journal."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
 msgstr "Incomplete submissions"
@@ -40,3 +40,12 @@ msgstr "Deletion threshold in days"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
 msgstr "Delete submissions..."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletionLabelPrefix"
+msgstr "Remove all incomplete submissions with no activity for more than"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletionLabelSuffix"
+msgstr "days."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.validation.integer"
+msgstr "The deletion threshold value must be a positive integer."
