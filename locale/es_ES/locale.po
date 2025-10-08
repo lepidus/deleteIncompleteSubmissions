@@ -40,3 +40,12 @@ msgstr "Límite de exclusión en días"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
 msgstr "Eliminar envíos..."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletionLabelPrefix"
+msgstr "Eliminar todas las presentaciones incompletas sin actividad durante más de"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletionLabelSuffix"
+msgstr "días."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.validation.integer"
+msgstr "El valor del umbral de eliminación debe ser un número entero positivo."

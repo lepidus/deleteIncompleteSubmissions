@@ -40,3 +40,12 @@ msgstr "Limite de exclusão em dias"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
 msgstr "Remover submissões..."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletionLabelPrefix"
+msgstr "Remover todas submissões incompletas sem atividades por mais de"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletionLabelSuffix"
+msgstr "dias."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.validation.integer"
+msgstr "O valor do limite de exclusão deve ser um número inteiro positivo."
