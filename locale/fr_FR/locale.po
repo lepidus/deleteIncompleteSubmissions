@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.displayName"
-msgstr "Supprimer les soumissions incomplètes" 
+msgstr "Supprimer les soumissions incomplètes"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.description"
 msgstr "Permet aux éditeurs de supprimer les soumissions incomplètes de la revue."
@@ -38,3 +38,12 @@ msgstr "Seuil de suppression en jours"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
 msgstr "Supprimer les soumissions..."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletionLabelPrefix"
+msgstr "Supprimer toutes les soumissions incomplètes sans activité depuis plus de"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletionLabelSuffix"
+msgstr "jours."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.validation.integer"
+msgstr "La valeur du seuil de suppression doit être un entier positif."
