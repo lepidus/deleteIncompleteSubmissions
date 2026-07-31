@@ -4,17 +4,31 @@ import('lib.pkp.classes.form.Form');
 
 class DeleteIncompleteSubmissionsSettingsForm extends Form
 {
+    private const PREVIEW_TTL_SECONDS = 900;
+
     public const FORM_VARS = [
         'deletionThreshold' => 'integer',
+        'previewId' => 'string',
     ];
 
     public $contextId;
     public $plugin;
 
+    /** @var array */
+    private $previewSubmissions = [];
+
+    /** @var bool */
+    private $isPreview = false;
+
+    /** @var string|null */
+    private $previewId = null;
+
     public function __construct($plugin, $contextId)
     {
         $this->contextId = $contextId;
         $this->plugin = $plugin;
+        $this->plugin->import('classes.SubmissionDeletionPolicy');
+        $this->plugin->import('classes.SubmissionDeletionPreview');
         parent::__construct($plugin->getTemplateResource('settingsForm.tpl'));
 
         $this->addCheck(new FormValidatorPost($this));
@@ -49,31 +63,146 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         $templateMgr->assign('pluginName', $this->plugin->getName());
         $templateMgr->assign('applicationName', Application::get()->getName());
         $templateMgr->assign('defaultThreshold', 15);
+        $templateMgr->assign('isPreview', $this->isPreview);
+        $templateMgr->assign('previewSubmissions', $this->previewSubmissions);
+        $templateMgr->assign('previewId', $this->previewId);
 
         return parent::fetch($request, $template, $display);
     }
 
-    public function execute(...$functionArgs)
+    public function preparePreview($request): void
     {
-        $deletionThreshold = $this->getData('deletionThreshold');
+        $deletionThreshold = (int) $this->getData('deletionThreshold');
+        $submissions = $this->getEligibleSubmissions($deletionThreshold);
 
-        $this->deleteIncompleteSubmissions($deletionThreshold);
-        parent::execute(...$functionArgs);
+        $this->previewSubmissions = array_map(
+            function (Submission $submission): array {
+                return [
+                    'id' => $submission->getId(),
+                    'title' => (string) $submission->getLocalizedFullTitle(),
+                    'status' => __($submission->getStatusKey()),
+                    'dateLastActivity' => (string) $submission->getData('dateLastActivity'),
+                ];
+            },
+            $submissions
+        );
+        $this->isPreview = true;
+
+        $preview = $this->getPreviewManager()->create(
+            array_column($this->previewSubmissions, 'id'),
+            $deletionThreshold,
+            time()
+        );
+        $this->previewId = $preview['id'];
+        $request->getSession()->setSessionVar($this->getPreviewSessionKey(), $preview);
     }
 
-    private function deleteIncompleteSubmissions(int $deletionThreshold): void
+    public function hasValidPreview($request): bool
     {
-        $submissionService = Services::get('submission');
-        $submissions = $submissionService->getMany([
-            'contextId' => $this->contextId, 'isIncomplete' => true, 'daysInactive' => $deletionThreshold
+        $preview = $request->getSession()->getSessionVar($this->getPreviewSessionKey());
+        $previewId = $this->getData('previewId');
+
+        return is_array($preview) && $this->getPreviewManager()->isValid(
+            $preview,
+            is_string($previewId) ? $previewId : null,
+            (int) $this->getData('deletionThreshold'),
+            time()
+        );
+    }
+
+    public function execute(...$functionArgs)
+    {
+        $request = Application::get()->getRequest();
+        if (!$this->hasValidPreview($request)) {
+            return 0;
+        }
+
+        $preview = $request->getSession()->getSessionVar($this->getPreviewSessionKey());
+        $request->getSession()->unsetSessionVar($this->getPreviewSessionKey());
+
+        $deletedCount = $this->deleteIncompleteSubmissions(
+            $preview['submissionIds'],
+            (int) $preview['deletionThreshold']
+        );
+
+        parent::execute(...$functionArgs);
+        return $deletedCount;
+    }
+
+    /** @return Submission[] */
+    private function getEligibleSubmissions(int $deletionThreshold): array
+    {
+        $submissions = Services::get('submission')->getMany([
+            'contextId' => $this->contextId,
+            'status' => STATUS_QUEUED,
+            'isIncomplete' => true,
+            'daysInactive' => $deletionThreshold,
         ]);
 
+        $policy = $this->getDeletionPolicy($deletionThreshold);
+        $eligibleSubmissions = [];
         foreach ($submissions as $submission) {
-            try {
-                $submissionService->delete($submission);
-            } catch (\Throwable $th) {
-                error_log('The submission  ' . $submission->getId() . ' was not deleted. Reason:' . $th->getMessage());
+            if ($policy->allows($submission)) {
+                $eligibleSubmissions[] = $submission;
             }
         }
+
+        return $eligibleSubmissions;
+    }
+
+    /** @param int[] $submissionIds */
+    private function deleteIncompleteSubmissions(array $submissionIds, int $deletionThreshold): int
+    {
+        $deletedCount = 0;
+        $submissionService = Services::get('submission');
+        $policy = $this->getDeletionPolicy($deletionThreshold);
+
+        foreach (array_unique(array_map('intval', $submissionIds)) as $submissionId) {
+            $submission = $submissionService->get($submissionId);
+            if (
+                !$submission
+                || $submission->getData('contextId') !== $this->contextId
+                || !$policy->allows($submission)
+            ) {
+                error_log(
+                    'Incomplete submission deletion skipped after safety revalidation. Submission ID: '
+                    . $submissionId
+                );
+                continue;
+            }
+
+            try {
+                $submissionService->delete($submission);
+                $deletedCount++;
+                error_log(
+                    'Incomplete submission deleted after preview and safety revalidation. Submission ID: '
+                    . $submissionId
+                );
+            } catch (\Throwable $th) {
+                error_log('The submission ' . $submissionId . ' was not deleted. Reason: ' . $th->getMessage());
+            }
+        }
+
+        return $deletedCount;
+    }
+
+    private function getDeletionPolicy(int $deletionThreshold): SubmissionDeletionPolicy
+    {
+        $cutoffTimestamp = strtotime('-' . $deletionThreshold . ' days');
+        if ($cutoffTimestamp === false) {
+            throw new RuntimeException('Unable to calculate the incomplete submission deletion threshold.');
+        }
+
+        return new SubmissionDeletionPolicy($this->contextId, $cutoffTimestamp);
+    }
+
+    private function getPreviewSessionKey(): string
+    {
+        return 'deleteIncompleteSubmissionsPreview-' . $this->contextId;
+    }
+
+    private function getPreviewManager(): SubmissionDeletionPreview
+    {
+        return new SubmissionDeletionPreview(self::PREVIEW_TTL_SECONDS);
     }
 }
