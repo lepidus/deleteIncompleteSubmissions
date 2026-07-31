@@ -48,3 +48,33 @@ msgstr "dias."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.validation.integer"
 msgstr "O valor do limite de eliminação deve ser um número inteiro positivo."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.action"
+msgstr "Pré-visualizar eliminações"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.title"
+msgstr "Submissões elegíveis para eliminação"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.id"
+msgstr "ID"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.submissionTitle"
+msgstr "Título"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.status"
+msgstr "Estado"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.lastActivity"
+msgstr "Última atividade"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.empty"
+msgstr "Nenhuma submissão cumpre todos os critérios seguros de eliminação."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.confirmation"
+msgstr "Reveja a lista com atenção. Apenas estas submissões serão revalidadas e eliminadas permanentemente."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.deleteConfirmed"
+msgstr "Eliminar submissões listadas"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.expired"
+msgstr "A pré-visualização expirou, o limite de eliminação foi alterado ou foi gerada uma pré-visualização mais recente, possivelmente noutro separador. Gere uma nova antes de eliminar submissões."

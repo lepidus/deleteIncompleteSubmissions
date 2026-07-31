@@ -20,7 +20,7 @@ msgid "plugins.generic.deleteIncompleteSubmissions.description"
 msgstr "Consente ai redattori di eliminare i contributi incompleti dalla rivista."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
-msgstr "Proposte incompleti".
+msgstr "Proposte incompleti"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
 msgstr "Imposta dopo quanti giorni di inattività le proposte incomplete devono essere eliminate."
@@ -48,3 +48,33 @@ msgstr "giorni."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.validation.integer"
 msgstr "Il valore della soglia di eliminazione deve essere un numero intero positivo."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.action"
+msgstr "Anteprima delle eliminazioni"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.title"
+msgstr "Proposte idonee all'eliminazione"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.id"
+msgstr "ID"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.submissionTitle"
+msgstr "Titolo"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.status"
+msgstr "Stato"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.lastActivity"
+msgstr "Ultima attività"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.empty"
+msgstr "Nessuna proposta soddisfa tutti i criteri di eliminazione sicura."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.confirmation"
+msgstr "Controlla attentamente l'elenco. Solo queste proposte saranno convalidate di nuovo ed eliminate definitivamente."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.deleteConfirmed"
+msgstr "Elimina le proposte elencate"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.expired"
+msgstr "L'anteprima è scaduta, la soglia è cambiata o è stata generata un'anteprima più recente, forse in un'altra scheda. Generane una nuova prima di eliminare."

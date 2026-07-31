@@ -49,3 +49,32 @@ msgstr "zile."
 msgid "plugins.generic.deleteIncompleteSubmissions.validation.integer"
 msgstr "Valoarea pragului de ștergere trebuie să fie un număr întreg pozitiv."
 
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.action"
+msgstr "Previzualizați ștergerile"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.title"
+msgstr "Înregistrări eligibile pentru ștergere"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.id"
+msgstr "ID"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.submissionTitle"
+msgstr "Titlu"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.status"
+msgstr "Stare"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.lastActivity"
+msgstr "Ultima activitate"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.empty"
+msgstr "Nicio înregistrare nu îndeplinește toate criteriile de ștergere în siguranță."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.confirmation"
+msgstr "Verificați lista cu atenție. Numai aceste înregistrări vor fi revalidate și șterse definitiv."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.deleteConfirmed"
+msgstr "Ștergeți înregistrările enumerate"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.expired"
+msgstr "Previzualizarea a expirat, pragul s-a modificat sau a fost generată una mai nouă, posibil într-o altă filă. Generați o previzualizare nouă înainte de ștergere."

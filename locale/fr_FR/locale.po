@@ -47,3 +47,33 @@ msgstr "jours."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.validation.integer"
 msgstr "La valeur du seuil de suppression doit être un entier positif."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.action"
+msgstr "Prévisualiser les suppressions"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.title"
+msgstr "Soumissions admissibles à la suppression"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.id"
+msgstr "ID"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.submissionTitle"
+msgstr "Titre"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.status"
+msgstr "Statut"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.lastActivity"
+msgstr "Dernière activité"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.empty"
+msgstr "Aucune soumission ne répond à tous les critères de suppression sécurisée."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.confirmation"
+msgstr "Examinez attentivement la liste. Seules ces soumissions seront revalidées et supprimées définitivement."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.deleteConfirmed"
+msgstr "Supprimer les soumissions répertoriées"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.expired"
+msgstr "La prévisualisation a expiré, le seuil a changé ou une prévisualisation plus récente a été générée, peut-être dans un autre onglet. Générez-en une nouvelle avant toute suppression."
