@@ -63,12 +63,21 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
     public function fetch($request, $template = null, $display = false)
     {
         $templateMgr = TemplateManager::getManager($request);
+        $previewId = $this->previewId;
+        if ($this->isPreview) {
+            $preview = $request->getSession()->getSessionVar($this->getPreviewSessionKey());
+            if (is_array($preview) && is_string($preview['id'] ?? null)) {
+                $previewId = $preview['id'];
+            }
+        }
+        $this->setData('previewId', $previewId);
+
         $templateMgr->assign('pluginName', $this->plugin->getName());
         $templateMgr->assign('applicationName', Application::get()->getName());
         $templateMgr->assign('defaultThreshold', 15);
         $templateMgr->assign('isPreview', $this->isPreview);
         $templateMgr->assign('previewSubmissions', $this->previewSubmissions);
-        $templateMgr->assign('previewId', $this->previewId);
+        $templateMgr->assign('previewId', $previewId);
 
         return parent::fetch($request, $template, $display);
     }
