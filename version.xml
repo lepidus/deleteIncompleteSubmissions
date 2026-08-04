@@ -13,6 +13,6 @@
 <version>
 	<application>deleteIncompleteSubmissions</application>
 	<type>plugins.generic</type>
-	<release>0.2.3.0</release>
-	<date>2025-10-08</date>
+	<release>0.2.3.1</release>
+	<date>2026-08-04</date>
 </version>

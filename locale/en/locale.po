@@ -49,3 +49,33 @@ msgstr "days."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.validation.integer"
 msgstr "The deletion threshold value must be a positive integer."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.action"
+msgstr "Preview deletions"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.title"
+msgstr "Submissions eligible for deletion"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.id"
+msgstr "ID"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.submissionTitle"
+msgstr "Title"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.status"
+msgstr "Status"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.lastActivity"
+msgstr "Last activity"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.empty"
+msgstr "No submissions meet all safe deletion criteria."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.confirmation"
+msgstr "Review the list carefully. Only these submissions will be revalidated and permanently deleted."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.deleteConfirmed"
+msgstr "Delete listed submissions"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.expired"
+msgstr "The preview expired, the deletion threshold changed, or a newer preview was generated, possibly in another tab. Generate a new preview before deleting submissions."

@@ -49,3 +49,33 @@ msgstr "Tagen."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.validation.integer"
 msgstr "Der Wert für die Löschfrist muss eine positive ganze Zahl sein."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.action"
+msgstr "Löschungen in der Vorschau anzeigen"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.title"
+msgstr "Zur Löschung geeignete Einreichungen"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.id"
+msgstr "ID"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.submissionTitle"
+msgstr "Titel"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.status"
+msgstr "Status"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.lastActivity"
+msgstr "Letzte Aktivität"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.empty"
+msgstr "Keine Einreichung erfüllt alle sicheren Löschkriterien."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.confirmation"
+msgstr "Prüfen Sie die Liste sorgfältig. Nur diese Einreichungen werden erneut geprüft und dauerhaft gelöscht."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.deleteConfirmed"
+msgstr "Aufgelistete Einreichungen löschen"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.expired"
+msgstr "Die Vorschau ist abgelaufen, die Löschfrist wurde geändert oder eine neuere Vorschau wurde möglicherweise in einem anderen Tab erstellt. Erstellen Sie vor dem Löschen eine neue Vorschau."

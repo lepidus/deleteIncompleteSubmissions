@@ -13,12 +13,12 @@
 
 namespace APP\plugins\generic\deleteIncompleteSubmissions;
 
-use PKP\plugins\GenericPlugin;
+use APP\core\Application;
+use APP\plugins\generic\deleteIncompleteSubmissions\settings\DeleteIncompleteSubmissionsSettingsForm;
+use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
-use APP\core\Application;
-use PKP\core\JSONMessage;
-use APP\plugins\generic\deleteIncompleteSubmissions\settings\DeleteIncompleteSubmissionsSettingsForm;
+use PKP\plugins\GenericPlugin;
 
 class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
 {
@@ -55,7 +55,7 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
             $this->getEnabled() ? [
                 new LinkAction(
                     'deletion',
-                    new AjaxModal($router->url($request, null, null, 'manage', null, array('verb' => 'deletion', 'plugin' => $this->getName(), 'category' => 'generic')), $this->getDisplayName()),
+                    new AjaxModal($router->url($request, null, null, 'manage', null, ['verb' => 'deletion', 'plugin' => $this->getName(), 'category' => 'generic']), $this->getDisplayName()),
                     __('plugins.generic.deleteIncompleteSubmissions.deletion'),
                 )
             ] : [],
@@ -73,8 +73,18 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
                 if ($request->getUserVar('save')) {
                     $form->readInputData();
                     if ($form->validate()) {
-                        $form->execute();
-                        return new JSONMessage(true);
+                        if ($request->getUserVar('deletionAction') === 'confirm') {
+                            if ($form->execute()) {
+                                return new JSONMessage(true);
+                            }
+
+                            $form->addError(
+                                'deletionThreshold',
+                                __('plugins.generic.deleteIncompleteSubmissions.preview.expired')
+                            );
+                        } else {
+                            $form->preparePreview($request);
+                        }
                     }
                 }
 

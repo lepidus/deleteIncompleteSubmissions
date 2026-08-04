@@ -49,3 +49,33 @@ msgstr "dias."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.validation.integer"
 msgstr "O valor do limite de exclusão deve ser um número inteiro positivo."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.action"
+msgstr "Visualizar exclusões"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.title"
+msgstr "Submissões elegíveis para exclusão"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.id"
+msgstr "ID"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.submissionTitle"
+msgstr "Título"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.status"
+msgstr "Status"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.lastActivity"
+msgstr "Última atividade"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.empty"
+msgstr "Nenhuma submissão atende a todos os critérios seguros de exclusão."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.confirmation"
+msgstr "Revise a lista com atenção. Somente essas submissões serão revalidadas e excluídas permanentemente."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.deleteConfirmed"
+msgstr "Excluir submissões listadas"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.expired"
+msgstr "A prévia expirou, o limite de exclusão foi alterado ou uma prévia mais recente foi gerada, possivelmente em outra aba. Gere uma nova prévia antes de excluir submissões."
