@@ -66,11 +66,13 @@ class SubmissionDeletionPolicy
             }
 
             $galleys = $publication->getData('galleys');
-            if (is_iterable($galleys)) {
-                foreach ($galleys as $galley) {
-                    if ($galley->getData('doiId') !== null) {
-                        return false;
-                    }
+            if (!is_iterable($galleys)) {
+                return false;
+            }
+
+            foreach ($galleys as $galley) {
+                if ($galley->getData('doiId') !== null) {
+                    return false;
                 }
             }
         }

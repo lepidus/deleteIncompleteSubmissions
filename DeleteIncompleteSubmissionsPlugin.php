@@ -7,18 +7,19 @@
  * Distributed under the GNU GPL v3. For full terms see LICENSE or https://www.gnu.org/licenses/gpl-3.0.txt
  *
  * @class DeleteIncompleteSubmissionsPlugin
+ *
  * @ingroup plugins_generic_deleteIncompleteSubmissions
  *
  */
 
 namespace APP\plugins\generic\deleteIncompleteSubmissions;
 
-use PKP\plugins\GenericPlugin;
+use APP\core\Application;
+use APP\plugins\generic\deleteIncompleteSubmissions\settings\DeleteIncompleteSubmissionsSettingsForm;
+use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
-use APP\core\Application;
-use PKP\core\JSONMessage;
-use APP\plugins\generic\deleteIncompleteSubmissions\settings\DeleteIncompleteSubmissionsSettingsForm;
+use PKP\plugins\GenericPlugin;
 
 class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
 {
@@ -55,7 +56,7 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
             $this->getEnabled() ? [
                 new LinkAction(
                     'deletion',
-                    new AjaxModal($router->url($request, null, null, 'manage', null, array('verb' => 'deletion', 'plugin' => $this->getName(), 'category' => 'generic')), $this->getDisplayName()),
+                    new AjaxModal($router->url($request, null, null, 'manage', null, ['verb' => 'deletion', 'plugin' => $this->getName(), 'category' => 'generic']), $this->getDisplayName()),
                     __('plugins.generic.deleteIncompleteSubmissions.deletion'),
                 )
             ] : [],
@@ -74,15 +75,14 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
                     $form->readInputData();
                     if ($form->validate()) {
                         if ($request->getUserVar('deletionAction') === 'confirm') {
-                            if (!$form->hasValidPreview($request)) {
-                                $form->addError(
-                                    'deletionThreshold',
-                                    __('plugins.generic.deleteIncompleteSubmissions.preview.expired')
-                                );
-                            } else {
-                                $form->execute();
+                            if ($form->execute()) {
                                 return new JSONMessage(true);
                             }
+
+                            $form->addError(
+                                'deletionThreshold',
+                                __('plugins.generic.deleteIncompleteSubmissions.preview.expired')
+                            );
                         } else {
                             $form->preparePreview($request);
                         }

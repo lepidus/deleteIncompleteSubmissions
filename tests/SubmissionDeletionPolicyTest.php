@@ -103,6 +103,10 @@ class SubmissionDeletionPolicyTest extends TestCase
                     'galleys' => [new FakeDataObject(['doiId' => 43])],
                 ])],
             ],
+            'publication with galleys that were not loaded' => [
+                $this->submissionData(),
+                [$this->publicationData(['galleys' => null])],
+            ],
         ];
     }
 
