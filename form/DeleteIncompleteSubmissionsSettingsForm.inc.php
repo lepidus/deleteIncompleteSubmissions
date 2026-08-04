@@ -30,7 +30,6 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         $this->contextId = $contextId;
         $this->plugin = $plugin;
         $this->plugin->import('classes.SubmissionDeletionPolicy');
-        $this->plugin->import('classes.SubmissionDeletionPreview');
         parent::__construct($plugin->getTemplateResource('settingsForm.tpl'));
 
         $this->addCheck(new FormValidatorPost($this));
