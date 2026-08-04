@@ -16,13 +16,10 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
     public $contextId;
     public $plugin;
 
-    /** @var array */
     private $previewSubmissions = [];
 
-    /** @var bool */
     private $isPreview = false;
 
-    /** @var string|null */
     private $previewId = null;
 
     public function __construct($plugin, $contextId)
@@ -132,7 +129,6 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         return $deletedCount;
     }
 
-    /** @return Submission[] */
     private function getEligibleSubmissions(int $deletionThreshold): array
     {
         $submissions = Services::get('submission')->getMany([
@@ -153,7 +149,6 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         return $eligibleSubmissions;
     }
 
-    /** @param int[] $submissionIds */
     private function deleteIncompleteSubmissions(array $submissionIds, int $deletionThreshold): int
     {
         $deletedCount = 0;
@@ -211,10 +206,6 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         return 'deleteIncompleteSubmissionsPreview-' . $this->contextId;
     }
 
-    /**
-     * @param int[] $submissionIds
-     * @return array{id: string, createdAt: int, deletionThreshold: int, submissionIds: int[]}
-     */
     private function createPreviewState(array $submissionIds, int $deletionThreshold): array
     {
         return [
@@ -230,9 +221,6 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         ];
     }
 
-    /**
-     * @param array{id: string, createdAt: int, deletionThreshold: int, submissionIds: int[]} $preview
-     */
     private function isPreviewStateValid(array $preview, ?string $previewId, int $deletionThreshold): bool
     {
         return is_string($previewId)
@@ -241,9 +229,6 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
             && $preview['deletionThreshold'] === $deletionThreshold;
     }
 
-    /**
-     * @return array{id: string, createdAt: int, deletionThreshold: int, submissionIds: int[]}|null
-     */
     private function consumePreviewState($request): ?array
     {
         $preview = $request->getSession()->getSessionVar($this->getPreviewSessionKey());

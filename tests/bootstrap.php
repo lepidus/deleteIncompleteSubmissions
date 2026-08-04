@@ -10,7 +10,6 @@ if (!defined('STATUS_QUEUED')) {
 if (!class_exists('Submission', false)) {
     class Submission
     {
-        /** @var array */
         private $data;
 
         public function __construct(array $data)

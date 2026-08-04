@@ -14,12 +14,11 @@ class SubmissionDeletionPolicyTest extends TestCase
         $this->assertTrue($this->policy()->allows($this->submission()));
     }
 
-    /**
-     * @dataProvider unsafeSubmissionProvider
-     */
-    public function testRejectsSubmissionWhenInvariantIsNotMet(array $submission, array $publications): void
+    public function testRejectsSubmissionWhenInvariantIsNotMet(): void
     {
-        $this->assertFalse($this->policy()->allows($this->submission($submission, $publications)));
+        foreach ($this->unsafeSubmissionProvider() as [$submission, $publications]) {
+            $this->assertFalse($this->policy()->allows($this->submission($submission, $publications)));
+        }
     }
 
     public function unsafeSubmissionProvider(): array
@@ -146,7 +145,6 @@ class SubmissionDeletionPolicyTest extends TestCase
 
 class FakePubIdObject
 {
-    /** @var array */
     protected $data;
 
     public function __construct(array $data)

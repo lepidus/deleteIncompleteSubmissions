@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 class SubmissionDeletionPolicy
 {
-    /** @var int */
     private $contextId;
 
-    /** @var int */
     private $cutoffTimestamp;
 
     public function __construct(int $contextId, int $cutoffTimestamp)
