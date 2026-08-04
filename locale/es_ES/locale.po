@@ -49,3 +49,33 @@ msgstr "días."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.validation.integer"
 msgstr "El valor del umbral de eliminación debe ser un número entero positivo."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.action"
+msgstr "Previsualizar eliminaciones"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.title"
+msgstr "Envíos elegibles para eliminación"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.id"
+msgstr "ID"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.submissionTitle"
+msgstr "Título"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.status"
+msgstr "Estado"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.lastActivity"
+msgstr "Última actividad"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.empty"
+msgstr "Ningún envío cumple todos los criterios de eliminación segura."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.confirmation"
+msgstr "Revise la lista con atención. Solo estos envíos se volverán a validar y se eliminarán permanentemente."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.deleteConfirmed"
+msgstr "Eliminar los envíos de la lista"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.expired"
+msgstr "La previsualización caducó, cambió el límite de eliminación o se generó una más reciente, posiblemente en otra pestaña. Genere una nueva antes de eliminar envíos."

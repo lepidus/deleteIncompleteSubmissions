@@ -57,8 +57,18 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
                 if ($request->getUserVar('save')) {
                     $form->readInputData();
                     if ($form->validate()) {
-                        $form->execute();
-                        return new JSONMessage(true);
+                        if ($request->getUserVar('deletionAction') === 'confirm') {
+                            if ($form->execute()) {
+                                return new JSONMessage(true);
+                            }
+
+                            $form->addError(
+                                'deletionThreshold',
+                                __('plugins.generic.deleteIncompleteSubmissions.preview.expired')
+                            );
+                        } else {
+                            $form->preparePreview($request);
+                        }
                     }
                 }
 
