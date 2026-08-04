@@ -163,7 +163,12 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
                         return false;
                     }
 
-                    $submission = Repo::submission()->get($submissionId, $this->contextId);
+                    $submission = Repo::submission()
+                        ->getCollector()
+                        ->filterByContextIds([$this->contextId])
+                        ->filterBySubmissionIds([$submissionId])
+                        ->getMany()
+                        ->first();
                     if (!$submission || !$policy->allows($submission)) {
                         return false;
                     }
