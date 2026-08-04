@@ -7,7 +7,6 @@
  * Distributed under the GNU GPL v3. For full terms see LICENSE or https://www.gnu.org/licenses/gpl-3.0.txt
  *
  * @class DeleteIncompleteSubmissionsPlugin
- *
  * @ingroup plugins_generic_deleteIncompleteSubmissions
  *
  */
