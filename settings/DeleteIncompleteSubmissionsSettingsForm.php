@@ -108,7 +108,7 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
 
     public function execute(...$functionArgs)
     {
-        $request = Application::get()->getRequest();
+        $request = $functionArgs[0] ?? Application::get()->getRequest();
         $preview = $this->consumePreviewState($request);
         if ($preview === null) {
             return 0;
@@ -120,7 +120,7 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
             $deletionThreshold
         );
 
-        parent::execute(...$functionArgs);
+        parent::execute();
         return $deletedCount;
     }
 
