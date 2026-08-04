@@ -158,7 +158,14 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
                         return false;
                     }
 
-                    $submission = $submissionService->get($submissionId);
+                    $submissions = $submissionService->getMany([
+                        'contextId' => $this->contextId,
+                        'submissionIds' => [$submissionId],
+                    ]);
+                    $submission = null;
+                    foreach ($submissions as $submission) {
+                        break;
+                    }
                     if (!$submission || !$policy->allows($submission)) {
                         return false;
                     }
