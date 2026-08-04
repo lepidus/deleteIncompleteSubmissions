@@ -108,7 +108,7 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
 
     public function execute(...$functionArgs)
     {
-        $request = $functionArgs[0] ?? Application::get()->getRequest();
+        $request = Application::get()->getRequest();
         $preview = $this->consumePreviewState($request);
         if ($preview === null) {
             return 0;
@@ -120,7 +120,7 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
             $deletionThreshold
         );
 
-        parent::execute();
+        parent::execute(...$functionArgs);
         return $deletedCount;
     }
 
@@ -163,12 +163,7 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
                         return false;
                     }
 
-                    $submission = Repo::submission()
-                        ->getCollector()
-                        ->filterByContextIds([$this->contextId])
-                        ->filterBySubmissionIds([$submissionId])
-                        ->getMany()
-                        ->first();
+                    $submission = Repo::submission()->get($submissionId, $this->contextId);
                     if (!$submission || !$policy->allows($submission)) {
                         return false;
                     }
