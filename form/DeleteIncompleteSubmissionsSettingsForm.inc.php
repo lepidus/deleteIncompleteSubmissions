@@ -2,6 +2,8 @@
 
 import('lib.pkp.classes.form.Form');
 
+use Illuminate\Database\Capsule\Manager as Capsule;
+
 class DeleteIncompleteSubmissionsSettingsForm extends Form
 {
     private const PREVIEW_TTL_SECONDS = 900;
@@ -88,11 +90,7 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         );
         $this->isPreview = true;
 
-        $preview = $this->getPreviewManager()->create(
-            array_column($this->previewSubmissions, 'id'),
-            $deletionThreshold,
-            time()
-        );
+        $preview = $this->createPreviewState(array_column($this->previewSubmissions, 'id'), $deletionThreshold);
         $this->previewId = $preview['id'];
         $request->getSession()->setSessionVar($this->getPreviewSessionKey(), $preview);
     }
@@ -102,23 +100,20 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         $preview = $request->getSession()->getSessionVar($this->getPreviewSessionKey());
         $previewId = $this->getData('previewId');
 
-        return is_array($preview) && $this->getPreviewManager()->isValid(
+        return is_array($preview) && $this->isPreviewStateValid(
             $preview,
             is_string($previewId) ? $previewId : null,
-            (int) $this->getData('deletionThreshold'),
-            time()
+            (int) $this->getData('deletionThreshold')
         );
     }
 
     public function execute(...$functionArgs)
     {
         $request = Application::get()->getRequest();
-        if (!$this->hasValidPreview($request)) {
+        $preview = $this->consumePreviewState($request);
+        if ($preview === null) {
             return 0;
         }
-
-        $preview = $request->getSession()->getSessionVar($this->getPreviewSessionKey());
-        $request->getSession()->unsetSessionVar($this->getPreviewSessionKey());
 
         $deletedCount = $this->deleteIncompleteSubmissions(
             $preview['submissionIds'],
@@ -158,26 +153,33 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         $policy = $this->getDeletionPolicy($deletionThreshold);
 
         foreach (array_unique(array_map('intval', $submissionIds)) as $submissionId) {
-            $submission = $submissionService->get($submissionId);
-            if (
-                !$submission
-                || $submission->getData('contextId') !== $this->contextId
-                || !$policy->allows($submission)
-            ) {
-                error_log(
-                    'Incomplete submission deletion skipped after safety revalidation. Submission ID: '
-                    . $submissionId
-                );
-                continue;
-            }
-
             try {
-                $submissionService->delete($submission);
-                $deletedCount++;
-                error_log(
-                    'Incomplete submission deleted after preview and safety revalidation. Submission ID: '
-                    . $submissionId
-                );
+                $wasDeleted = Capsule::connection()->transaction(function () use ($submissionId, $policy, $submissionService): bool {
+                    if (!$this->lockSubmissionForDeletion($submissionId)) {
+                        return false;
+                    }
+
+                    $submission = $submissionService->get($submissionId);
+                    if (!$submission || !$policy->allows($submission)) {
+                        return false;
+                    }
+
+                    $submissionService->delete($submission);
+                    return true;
+                });
+
+                if ($wasDeleted) {
+                    $deletedCount++;
+                    error_log(
+                        'Incomplete submission deleted after preview and safety revalidation. Submission ID: '
+                        . $submissionId
+                    );
+                } else {
+                    error_log(
+                        'Incomplete submission deletion skipped after safety revalidation. Submission ID: '
+                        . $submissionId
+                    );
+                }
             } catch (\Throwable $th) {
                 error_log('The submission ' . $submissionId . ' was not deleted. Reason: ' . $th->getMessage());
             }
@@ -201,8 +203,74 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         return 'deleteIncompleteSubmissionsPreview-' . $this->contextId;
     }
 
-    private function getPreviewManager(): SubmissionDeletionPreview
+    /**
+     * @param int[] $submissionIds
+     * @return array{id: string, createdAt: int, deletionThreshold: int, submissionIds: int[]}
+     */
+    private function createPreviewState(array $submissionIds, int $deletionThreshold): array
     {
-        return new SubmissionDeletionPreview(self::PREVIEW_TTL_SECONDS);
+        return [
+            'id' => bin2hex(random_bytes(16)),
+            'createdAt' => time(),
+            'deletionThreshold' => $deletionThreshold,
+            'submissionIds' => array_values(array_unique(array_filter(
+                array_map('intval', $submissionIds),
+                function (int $submissionId): bool {
+                    return $submissionId > 0;
+                }
+            ))),
+        ];
+    }
+
+    /**
+     * @param array{id: string, createdAt: int, deletionThreshold: int, submissionIds: int[]} $preview
+     */
+    private function isPreviewStateValid(array $preview, ?string $previewId, int $deletionThreshold): bool
+    {
+        return is_string($previewId)
+            && hash_equals($preview['id'], $previewId)
+            && time() - $preview['createdAt'] <= self::PREVIEW_TTL_SECONDS
+            && $preview['deletionThreshold'] === $deletionThreshold;
+    }
+
+    /**
+     * @return array{id: string, createdAt: int, deletionThreshold: int, submissionIds: int[]}|null
+     */
+    private function consumePreviewState($request): ?array
+    {
+        $preview = $request->getSession()->getSessionVar($this->getPreviewSessionKey());
+        if (!is_array($preview) || !$this->hasValidPreview($request)) {
+            return null;
+        }
+
+        $request->getSession()->unsetSessionVar($this->getPreviewSessionKey());
+        return $preview;
+    }
+
+    private function lockSubmissionForDeletion(int $submissionId): bool
+    {
+        $connection = Capsule::connection();
+        $submission = $connection->table('submissions')
+            ->where('submission_id', $submissionId)
+            ->where('context_id', $this->contextId)
+            ->lockForUpdate()
+            ->first();
+        if ($submission === null) {
+            return false;
+        }
+
+        $publicationIds = $connection->table('publications')
+            ->where('submission_id', $submissionId)
+            ->lockForUpdate()
+            ->pluck('publication_id')
+            ->all();
+        if ($publicationIds !== []) {
+            $connection->table('publication_galleys')
+                ->whereIn('publication_id', $publicationIds)
+                ->lockForUpdate()
+                ->get();
+        }
+
+        return true;
     }
 }
