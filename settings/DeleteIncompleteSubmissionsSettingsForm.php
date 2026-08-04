@@ -133,9 +133,6 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         return $deletedCount;
     }
 
-    /**
-     * @return list<Submission>
-     */
     private function getEligibleSubmissions(int $deletionThreshold): array
     {
         $submissions = Repo::submission()
@@ -157,9 +154,6 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         return $eligibleSubmissions;
     }
 
-    /**
-     * @param list<int> $submissionIds
-     */
     private function deleteIncompleteSubmissions(array $submissionIds, int $deletionThreshold): int
     {
         $deletedCount = 0;
@@ -210,11 +204,6 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         return 'deleteIncompleteSubmissionsPreview-' . $this->contextId;
     }
 
-    /**
-     * @param list<int> $submissionIds
-     *
-     * @return array{id: string, createdAt: int, deletionThreshold: int, submissionIds: list<int>}
-     */
     private function createPreviewState(array $submissionIds, int $deletionThreshold): array
     {
         return [
@@ -228,9 +217,6 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         ];
     }
 
-    /**
-     * @param array{id: string, createdAt: int, deletionThreshold: int, submissionIds: list<int>} $preview
-     */
     private function isPreviewStateValid(array $preview, ?string $previewId, int $deletionThreshold): bool
     {
         return is_string($previewId)
@@ -239,9 +225,6 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
             && $preview['deletionThreshold'] === $deletionThreshold;
     }
 
-    /**
-     * @return array{id: string, createdAt: int, deletionThreshold: int, submissionIds: list<int>}|null
-     */
     private function consumePreviewState($request): ?array
     {
         $preview = $request->getSession()->getSessionVar($this->getPreviewSessionKey());

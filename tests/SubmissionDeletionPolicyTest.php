@@ -18,14 +18,11 @@ class SubmissionDeletionPolicyTest extends TestCase
         $this->assertTrue($this->policy()->allows($this->submission()));
     }
 
-    /**
-     * @dataProvider unsafeSubmissionProvider
-     */
-    public function testRejectsSubmissionWhenInvariantIsNotMet(
-        array $submission,
-        array $publications
-    ): void {
-        $this->assertFalse($this->policy()->allows($this->submission($submission, $publications)));
+    public function testRejectsSubmissionWhenInvariantIsNotMet(): void
+    {
+        foreach ($this->unsafeSubmissionProvider() as [$submission, $publications]) {
+            $this->assertFalse($this->policy()->allows($this->submission($submission, $publications)));
+        }
     }
 
     public function unsafeSubmissionProvider(): array
