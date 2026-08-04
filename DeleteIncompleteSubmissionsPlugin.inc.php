@@ -58,7 +58,7 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
                     $form->readInputData();
                     if ($form->validate()) {
                         if ($request->getUserVar('deletionAction') === 'confirm') {
-                            if ($form->execute()) {
+                            if ($form->execute($request)) {
                                 return new JSONMessage(true);
                             }
 
