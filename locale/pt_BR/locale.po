@@ -13,30 +13,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-
 msgid "plugins.generic.deleteIncompleteSubmissions.displayName"
 msgstr "Remover submissões incompletas"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.description"
-msgstr "Permite que editores excluam submissões incompletas da revista."
-
-msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
-msgstr "Submissões incompletas"
+msgstr "Remove, em uma única operação revisada e confirmada, todas as submissões incompletas sem atividade há mais dias do que o limite definido."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
-msgstr "Defina há quantos dias as submissões incompletas devem estar sem atividade para serem excluídas"
+msgstr "Defina há quantos dias uma submissão incompleta precisa estar sem atividade para ser elegível à remoção. Todas as submissões elegíveis são listadas para sua conferência e a lista inteira é excluída de uma vez, após sua confirmação."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.title"
-msgstr "Importante:"
+msgstr "Antes de continuar:"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.one"
-msgstr "Períodos muito curtos podem levar à exclusão de submissões que ainda estão em andamento."
+msgstr "Períodos curtos de inatividade podem alcançar submissões que os autores ainda estão preenchendo."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.two"
-msgstr "As submissões serão excluídas apenas quando você executar esta ação. Execute periodicamente, se considerar necessário."
+msgstr "Nada é removido automaticamente: as submissões só são excluídas quando você executa esta ação; repita-a sempre que precisar de uma limpeza."
 
-msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
-msgstr "Limite de exclusão em dias"
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.three"
+msgstr "Submissões com publicação publicada ou agendada, ou com DOI atribuído, nunca são removidas, e isso é verificado novamente imediatamente antes da exclusão."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
 msgstr "Remover submissões..."

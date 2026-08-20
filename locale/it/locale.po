@@ -17,25 +17,22 @@ msgid "plugins.generic.deleteIncompleteSubmissions.displayName"
 msgstr "Cancellare gli Proposte incompleti"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.description"
-msgstr "Consente ai redattori di eliminare i contributi incompleti dalla rivista."
-
-msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
-msgstr "Proposte incompleti"
+msgstr "Elimina, in un'unica operazione verificata e confermata, tutte le proposte incomplete inattive da più giorni della soglia impostata."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
-msgstr "Imposta dopo quanti giorni di inattività le proposte incomplete devono essere eliminate."
+msgstr "Imposta dopo quanti giorni di inattività una proposta incompleta diventa eleggibile per l'eliminazione. Tutte le proposte eleggibili vengono elencate per la tua verifica e l'intero elenco viene eliminato in una sola volta, dopo la tua conferma."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.title"
-msgstr "Importante:"
+msgstr "Prima di continuare:"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.one"
-msgstr "Periodi brevi possono portare all'eliminazione di proposte ancora in corso."
+msgstr "Periodi di inattività brevi possono includere proposte che gli autori stanno ancora compilando."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.two"
-msgstr "Le proposte verranno eliminate solo quando esegui questa azione. Eseguila periodicamente, se necessario."
+msgstr "Nulla viene eliminato automaticamente: le proposte vengono eliminate solo quando esegui questa azione; ripetila ogni volta che serve una pulizia."
 
-msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
-msgstr "Soglia di cancellazione in giorni"
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.three"
+msgstr "Le proposte con una pubblicazione pubblicata o programmata, o con un DOI assegnato, non vengono mai eliminate, e questo viene verificato di nuovo immediatamente prima dell'eliminazione."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
 msgstr "Cancellare gli Proposte..."

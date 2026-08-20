@@ -8,7 +8,7 @@
     {rdelim});
 </script>
 
-<div id="plnSettings">
+<div id="deleteIncompleteSubmissionsSettings">
     <form class="pkp_form" id="deleteIncompleteSubmissionsSettingsForm" method="post"
         action="{url router=$smarty.const.ROUTE_COMPONENT op="manage" category="generic" plugin=$pluginName verb="deletion" save=true}"
     >
@@ -24,6 +24,7 @@
             <ul>
                 <li>{translate key="plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.one"}</li>
                 <li>{translate key="plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.two"}</li>
+                <li>{translate key="plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.three"}</li>
             </ul>
         </div>
         <br>
@@ -32,10 +33,13 @@
 
         {fbvFormArea id="deleteIncompleteSubmissionsSettingsFormArea"}
             {fbvFormSection}
+                {if $errors.deletionThreshold}
+                    <span class="error" id="deletionThresholdError">{$errors.deletionThreshold|escape}</span>
+                {/if}
                 <div>
                     <label for="deletionThreshold" style="display: grid; grid-template-columns: 8fr 1fr 2fr; column-gap: 10px;">
                         <p style="grid-row: 1;">{translate key="plugins.generic.deleteIncompleteSubmissions.deletionLabelPrefix"}</p>
-                        <input style="grid-row: 1; margin-block-start: 10px;" type="number" id="deletionThreshold" name="deletionThreshold" value="{$deletionThreshold|default:$defaultThreshold|escape}" min="1" step="1" required/>
+                        <input style="grid-row: 1; margin-block-start: 10px;" type="number" id="deletionThreshold" name="deletionThreshold" value="{$deletionThreshold|default:$defaultThreshold|escape}" min="1" step="1" required{if $errors.deletionThreshold} aria-invalid="true" aria-describedby="deletionThresholdError"{/if}/>
                         <p style="grid-row: 1;">{translate key="plugins.generic.deleteIncompleteSubmissions.deletionLabelSuffix"}</p>
                     </label>
                 </div>

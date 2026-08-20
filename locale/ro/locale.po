@@ -17,25 +17,22 @@ msgid "plugins.generic.deleteIncompleteSubmissions.displayName"
 msgstr "Ștergeți înregistrările incomplete"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.description"
-msgstr "Permite editorilor să șteargă înregistrările incomplete din revistă."
-
-msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
-msgstr "Înregistrări incomplete"
+msgstr "Șterge, într-o singură operațiune verificată și confirmată, toate înregistrările incomplete inactive de mai multe zile decât pragul stabilit."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
-msgstr "Stabiliți câte zile trebuie să fie inactive înregistrările incomplete înainte de a fi șterse."
+msgstr "Stabiliți câte zile trebuie să fie inactivă o înregistrare incompletă pentru a fi eligibilă pentru ștergere. Toate înregistrările eligibile sunt listate pentru verificare, iar întreaga listă este ștearsă dintr-o dată, după confirmarea dumneavoastră."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.title"
-msgstr "Important:"
+msgstr "Înainte de a continua:"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.one"
-msgstr "Perioadele scurte pot duce la ștergerea înregistrărilor care sunt încă în curs de completare."
+msgstr "Perioadele scurte de inactivitate pot include înregistrări pe care autorii încă le completează."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.two"
-msgstr "Înregistrările vor fi șterse doar când efectuați această acțiune. Efectuați-o periodic, dacă este necesar."
+msgstr "Nimic nu este șters automat: înregistrările sunt șterse doar când efectuați această acțiune; repetați-o ori de câte ori este nevoie de o curățare."
 
-msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
-msgstr "Termen de ștergere în zile"
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.three"
+msgstr "Înregistrările cu o publicație publicată sau programată, sau cu un DOI atribuit, nu sunt niciodată șterse, iar acest lucru este verificat din nou imediat înainte de ștergere."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
 msgstr "Ștergere înregistrări..."

@@ -13,30 +13,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-
 msgid "plugins.generic.deleteIncompleteSubmissions.displayName"
 msgstr "Delete incomplete submissions"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.description"
-msgstr "Allows editors to delete incomplete submissions from the journal."
-
-msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
-msgstr "Incomplete submissions"
+msgstr "Removes every incomplete submission left inactive beyond a chosen number of days, in one reviewed and confirmed operation."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
-msgstr "Set how many days incomplete submissions must be inactive before they are deleted."
+msgstr "Choose how many days an incomplete submission must have been inactive to be eligible for removal. Every eligible submission is listed for your review, and the whole list is deleted at once after you confirm."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.title"
-msgstr "Important:"
+msgstr "Before you continue:"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.one"
-msgstr "Short periods of time may lead to the deletion of submissions that are still in progress."
+msgstr "Short inactivity periods may reach submissions whose authors are still working on them."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.two"
-msgstr "The submissions will only be deleted when you perform this action. Perform it periodically, if necessary."
+msgstr "Nothing is removed automatically: submissions are deleted only when you run this action, so repeat it whenever a cleanup is needed."
 
-msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
-msgstr "Deletion threshold in days"
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.three"
+msgstr "Submissions with a published or scheduled publication, or with an assigned DOI, are never removed, and this is checked again immediately before deletion."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
 msgstr "Delete submissions..."

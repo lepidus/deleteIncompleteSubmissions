@@ -13,30 +13,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-
 msgid "plugins.generic.deleteIncompleteSubmissions.displayName"
 msgstr "Unvollständigen Beitrag löschen"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.description"
-msgstr "Ermöglicht es Redakteur*innen, unvollständige Beiträge aus der Zeitschrift zu löschen."
-
-msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
-msgstr "Unvollständige Beiträge"
+msgstr "Löscht in einem einzigen geprüften und bestätigten Vorgang alle unvollständigen Beiträge, die länger als die festgelegte Anzahl von Tagen inaktiv sind."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
-msgstr "Definieren Sie, wie viele Tage unvollständige Beiträge inaktiv sein müssen, bevor sie gelöscht werden."
+msgstr "Legen Sie fest, wie viele Tage ein unvollständiger Beitrag inaktiv sein muss, um für die Löschung infrage zu kommen. Alle infrage kommenden Beiträge werden zur Prüfung aufgelistet und die gesamte Liste wird nach Ihrer Bestätigung auf einmal gelöscht."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.title"
-msgstr "Wichtig:"
+msgstr "Bevor Sie fortfahren:"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.one"
-msgstr "Kurze Zeiträume können dazu führen, dass Beiträge gelöscht werden, die sich noch in Bearbeitung befinden."
+msgstr "Kurze Inaktivitätszeiträume können Beiträge erfassen, an denen die Autor*innen noch arbeiten."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.two"
-msgstr "Die Beiträge werden nur gelöscht, wenn Sie diese Aktion ausführen. Führen Sie sie bei Bedarf regelmäßig durch."
+msgstr "Es wird nichts automatisch gelöscht: Beiträge werden nur gelöscht, wenn Sie diese Aktion ausführen; wiederholen Sie sie, wann immer eine Bereinigung nötig ist."
 
-msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
-msgstr "Frist für die Löschung in Tagen"
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.three"
+msgstr "Beiträge mit einer veröffentlichten oder geplanten Publikation oder mit einer zugewiesenen DOI werden nie gelöscht, und das wird unmittelbar vor dem Löschen erneut geprüft."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
 msgstr "Beiträge löschen..."

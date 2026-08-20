@@ -13,29 +13,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-
 msgid "plugins.generic.deleteIncompleteSubmissions.displayName"
 msgstr "Remover submissões incompletas"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.description"
-msgstr "Permite que editores excluam submissões incompletas da revista."
-
-msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
-msgstr "Submissões incompletas"
+msgstr "Remove, numa única operação revista e confirmada, todas as submissões incompletas sem atividade há mais dias do que o limite definido."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
-msgstr "Defina quantos dias as submissões incompletas devem estar inativas antes de serem removidas."
+msgstr "Defina há quantos dias uma submissão incompleta tem de estar inativa para ser elegível para remoção. Todas as submissões elegíveis são listadas para a sua verificação e a lista inteira é removida de uma só vez, após a sua confirmação."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.title"
-msgstr "Importante:"
+msgstr "Antes de continuar:"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.one"
-msgstr "Períodos curtos podem levar à remoção de submissões ainda em andamento."
+msgstr "Períodos curtos de inatividade podem abranger submissões que os autores ainda estão a preencher."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.two"
-msgstr "As submissões só serão removidas quando executar esta ação. Execute-a periodicamente, se necessário."
-msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
-msgstr "Limite de exclusão em dias"
+msgstr "Nada é removido automaticamente: as submissões só são removidas quando executa esta ação; repita-a sempre que precisar de uma limpeza."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.three"
+msgstr "Submissões com publicação publicada ou agendada, ou com DOI atribuído, nunca são removidas, e isso é verificado de novo imediatamente antes da remoção."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
 msgstr "Remover submissões..."

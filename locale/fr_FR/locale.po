@@ -17,24 +17,22 @@ msgid "plugins.generic.deleteIncompleteSubmissions.displayName"
 msgstr "Supprimer les soumissions incomplètes"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.description"
-msgstr "Permet aux éditeurs de supprimer les soumissions incomplètes de la revue."
-
-msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
-msgstr "Soumissions incomplètes"
+msgstr "Supprime, en une seule opération vérifiée et confirmée, toutes les soumissions incomplètes inactives depuis plus longtemps que le seuil défini."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
-msgstr "Définissez combien de jours les soumissions incomplètes doivent rester inactives avant d'être supprimées."
+msgstr "Définissez le nombre de jours d'inactivité à partir duquel une soumission incomplète devient éligible à la suppression. Toutes les soumissions éligibles sont listées pour vérification, puis la liste entière est supprimée en une fois, après votre confirmation."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.title"
-msgstr "Important:"
+msgstr "Avant de continuer :"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.one"
-msgstr "Des périodes courtes peuvent entraîner la suppression de soumissions encore en cours."
+msgstr "Des périodes d'inactivité courtes peuvent concerner des soumissions que les auteurs et autrices sont encore en train de remplir."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.two"
-msgstr "Les soumissions ne seront supprimées que lorsque vous effectuerez cette action. Faites-le régulièrement si nécessaire."
-msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
-msgstr "Seuil de suppression en jours"
+msgstr "Rien n'est supprimé automatiquement : les soumissions ne sont supprimées que lorsque vous exécutez cette action ; répétez-la chaque fois qu'un nettoyage est nécessaire."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.three"
+msgstr "Les soumissions ayant une publication publiée ou programmée, ou un DOI attribué, ne sont jamais supprimées, et cela est vérifié à nouveau juste avant la suppression."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
 msgstr "Supprimer les soumissions..."

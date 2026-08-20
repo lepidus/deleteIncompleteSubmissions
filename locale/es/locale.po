@@ -13,30 +13,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-
 msgid "plugins.generic.deleteIncompleteSubmissions.displayName"
 msgstr "Eliminar envíos incompletos"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.description"
-msgstr "Permite a los editores eliminar los envíos incompletos de la revista."
-
-msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
-msgstr "Envíos incompletos"
+msgstr "Elimina, en una sola operación revisada y confirmada, todos los envíos incompletos que llevan más días inactivos que el límite definido."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
-msgstr "Defina cuántos días deben permanecer inactivos los envíos incompletos para ser eliminados."
+msgstr "Defina cuántos días debe llevar inactivo un envío incompleto para ser elegible para su eliminación. Todos los envíos elegibles se listan para su revisión y la lista completa se elimina de una vez, tras su confirmación."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.title"
-msgstr "Importante:"
+msgstr "Antes de continuar:"
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.one"
-msgstr "Los plazos muy cortos pueden dar lugar a la exclusión de envíos que aún están en curso."
+msgstr "Los períodos de inactividad cortos pueden alcanzar envíos que sus autores todavía están completando."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.two"
-msgstr "Los envíos solo se eliminarán cuando usted realice esta acción. Realícela periódicamente, si lo considera necesario."
+msgstr "Nada se elimina automáticamente: los envíos solo se eliminan cuando usted ejecuta esta acción; repítala siempre que necesite una limpieza."
 
-msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
-msgstr "Límite de exclusión en días"
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.three"
+msgstr "Los envíos con una publicación publicada o programada, o con un DOI asignado, nunca se eliminan, y esto se comprueba de nuevo inmediatamente antes de la eliminación."
 
 msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
 msgstr "Eliminar envíos..."
