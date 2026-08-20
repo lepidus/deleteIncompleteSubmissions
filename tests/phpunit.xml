@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="bootstrap.php" cacheResult="false" colors="true">
-    <testsuites>
-        <testsuite name="deleteIncompleteSubmissions">
-            <directory suffix="Test.php">.</directory>
-        </testsuite>
-    </testsuites>
-</phpunit>

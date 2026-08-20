@@ -3,10 +3,10 @@
 namespace APP\plugins\generic\deleteIncompleteSubmissions\tests;
 
 use APP\plugins\generic\deleteIncompleteSubmissions\classes\SubmissionDeletionPolicy;
+use APP\publication\Publication;
 use APP\submission\Submission;
 use PHPUnit\Framework\TestCase;
-
-require_once dirname(__DIR__) . '/classes/SubmissionDeletionPolicy.php';
+use PKP\galley\Galley;
 
 class SubmissionDeletionPolicyTest extends TestCase
 {
@@ -97,7 +97,7 @@ class SubmissionDeletionPolicyTest extends TestCase
             'galley with assigned DOI' => [
                 $this->submissionData(),
                 [$this->publicationData([
-                    'galleys' => [new FakeDataObject(['doiId' => 43])],
+                    'galleys' => [$this->galley(['doiId' => 43])],
                 ])],
             ],
             'publication with galleys that were not loaded' => [
@@ -125,16 +125,35 @@ class SubmissionDeletionPolicyTest extends TestCase
 
     private function submission(array $overrides = [], ?array $publications = null): Submission
     {
-        return new Submission(array_merge(
+        $submission = new Submission();
+        $submission->setAllData(array_merge(
             $this->submissionData(),
             $overrides,
             [
                 'publications' => array_map(
-                    fn (array $publication): FakePublication => new FakePublication($publication),
+                    fn (array $publication): Publication => $this->publication($publication),
                     $publications ?? [$this->publicationData()]
                 ),
             ]
         ));
+
+        return $submission;
+    }
+
+    private function publication(array $data): Publication
+    {
+        $publication = new Publication();
+        $publication->setAllData($data);
+
+        return $publication;
+    }
+
+    private function galley(array $data): Galley
+    {
+        $galley = new Galley();
+        $galley->setAllData($data);
+
+        return $galley;
     }
 
     private function publicationData(array $overrides = []): array
@@ -145,28 +164,5 @@ class SubmissionDeletionPolicyTest extends TestCase
             'doiId' => null,
             'galleys' => [],
         ], $overrides);
-    }
-}
-
-class FakeDataObject
-{
-    protected array $data;
-
-    public function __construct(array $data)
-    {
-        $this->data = $data;
-    }
-
-    public function getData(string $name)
-    {
-        return $this->data[$name] ?? null;
-    }
-}
-
-class FakePublication extends FakeDataObject
-{
-    public function getId(): int
-    {
-        return $this->data['id'];
     }
 }
