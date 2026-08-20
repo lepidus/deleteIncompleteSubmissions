@@ -18,8 +18,8 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
     private const PREVIEW_TTL_SECONDS = 900;
 
     public const FORM_VARS = [
-        'deletionThreshold' => 'integer',
-        'previewId' => 'string',
+        'deletionThreshold',
+        'previewId',
     ];
 
     public $contextId;
@@ -57,7 +57,7 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
 
     public function readInputData()
     {
-        $this->readUserVars(array_keys(self::FORM_VARS));
+        $this->readUserVars(self::FORM_VARS);
     }
 
     public function fetch($request, $template = null, $display = false)
@@ -65,7 +65,7 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         $templateMgr = TemplateManager::getManager($request);
         $previewId = $this->previewId;
         if ($this->isPreview) {
-            $preview = $request->getSession()->getSessionVar($this->getPreviewSessionKey());
+            $preview = $request->getSession()->get($this->getPreviewSessionKey());
             if (is_array($preview) && is_string($preview['id'] ?? null)) {
                 $previewId = $preview['id'];
             }
@@ -73,7 +73,6 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         $this->setData('previewId', $previewId);
 
         $templateMgr->assign('pluginName', $this->plugin->getName());
-        $templateMgr->assign('applicationName', Application::get()->getName());
         $templateMgr->assign('defaultThreshold', 15);
         $templateMgr->assign('isPreview', $this->isPreview);
         $templateMgr->assign('previewSubmissions', $this->previewSubmissions);
@@ -90,7 +89,7 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
         $this->previewSubmissions = array_map(
             fn (Submission $submission): array => [
                 'id' => $submission->getId(),
-                'title' => (string) $submission->getLocalizedFullTitle(),
+                'title' => (string) ($submission->getCurrentPublication()?->getLocalizedFullTitle() ?? ''),
                 'status' => __($submission->getStatusKey()),
                 'dateLastActivity' => (string) $submission->getData('dateLastActivity'),
             ],
@@ -100,12 +99,12 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
 
         $preview = $this->createPreviewState(array_column($this->previewSubmissions, 'id'), $deletionThreshold);
         $this->previewId = $preview['id'];
-        $request->getSession()->setSessionVar($this->getPreviewSessionKey(), $preview);
+        $request->getSession()->put($this->getPreviewSessionKey(), $preview);
     }
 
-    public function hasValidPreview($request): bool
+    private function hasValidPreview($request): bool
     {
-        $preview = $request->getSession()->getSessionVar($this->getPreviewSessionKey());
+        $preview = $request->getSession()->get($this->getPreviewSessionKey());
         $previewId = $this->getData('previewId');
 
         return is_array($preview) && $this->isPreviewStateValid(
@@ -227,12 +226,12 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
 
     private function consumePreviewState($request): ?array
     {
-        $preview = $request->getSession()->getSessionVar($this->getPreviewSessionKey());
+        $preview = $request->getSession()->get($this->getPreviewSessionKey());
         if (!is_array($preview) || !$this->hasValidPreview($request)) {
             return null;
         }
 
-        $request->getSession()->unsetSessionVar($this->getPreviewSessionKey());
+        $request->getSession()->forget($this->getPreviewSessionKey());
         return $preview;
     }
 

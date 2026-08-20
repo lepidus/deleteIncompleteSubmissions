@@ -24,8 +24,7 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
 {
     public function register($category, $path, $mainContextId = null)
     {
-        $success = parent::register($category, $path);
-        return $success;
+        return parent::register($category, $path, $mainContextId);
     }
 
     public function getDisplayName(): string
@@ -90,7 +89,7 @@ class DeleteIncompleteSubmissionsPlugin extends GenericPlugin
 
                 return new JSONMessage(true, $form->fetch($request));
             default:
-                return parent::manage($verb, $args, $message, $messageParams);
+                return parent::manage($args, $request);
         }
     }
 }
