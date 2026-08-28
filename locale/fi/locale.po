@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-27 00:00+0000\n"
+"PO-Revision-Date: 2026-08-27 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+
+msgid "plugins.generic.deleteIncompleteSubmissions.displayName"
+msgstr "Poista keskeneräiset käsikirjoitukset"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.description"
+msgstr "Antaa toimittajille mahdollisuuden poistaa keskeneräiset käsikirjoitukset."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.incompleteSubmissionsTab"
+msgstr "Keskeneräiset käsikirjoitukset"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.description"
+msgstr "Valitse, kuinka monen päivän jälkeen keskeneräinen käsikirjoitus voidaan poistaa, jos siihen ei ole tehty muutoksia."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.title"
+msgstr "Tärkeää:"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.one"
+msgstr "Lyhyt aikaraja voi johtaa vielä valmisteilla olevien käsikirjoitusten poistamiseen."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.warning.item.two"
+msgstr "Käsikirjoitukset poistetaan vasta, kun suoritat tämän toiminnon. Suorita se tarvittaessa säännöllisesti."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion.threshold"
+msgstr "Poistoraja päivinä"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletion"
+msgstr "Poista käsikirjoituksia..."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletionLabelPrefix"
+msgstr "Poista kaikki keskeneräiset käsikirjoitukset, joihin ei ole tehty muutoksia yli"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.deletionLabelSuffix"
+msgstr "päivään."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.validation.integer"
+msgstr "Poistorajan arvon on oltava positiivinen kokonaisluku."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.action"
+msgstr "Esikatsele poistettavat käsikirjoitukset"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.title"
+msgstr "Poistettavissa olevat käsikirjoitukset"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.id"
+msgstr "ID"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.submissionTitle"
+msgstr "Otsikko"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.status"
+msgstr "Tila"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.lastActivity"
+msgstr "Viimeisin muutos"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.empty"
+msgstr "Yksikään käsikirjoitus ei täytä kaikkia turvallisen poistamisen ehtoja."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.confirmation"
+msgstr "Tarkista luettelo huolellisesti. Vain nämä käsikirjoitukset poistetaan pysyvästi."
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.deleteConfirmed"
+msgstr "Poista luettelossa olevat käsikirjoitukset"
+
+msgid "plugins.generic.deleteIncompleteSubmissions.preview.expired"
+msgstr "Esikatselu on vanhentunut, poistorajaa on muutettu tai uudempi esikatselu on luotu mahdollisesti toisella välilehdellä. Luo uusi esikatselu ennen käsikirjoitusten poistamista."
