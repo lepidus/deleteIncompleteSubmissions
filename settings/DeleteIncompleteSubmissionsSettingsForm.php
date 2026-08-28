@@ -253,7 +253,8 @@ class DeleteIncompleteSubmissionsSettingsForm extends Form
             ->pluck('publication_id')
             ->all();
         if ($publicationIds !== []) {
-            DB::table('publication_galleys')
+            $representationsTable = Application::get()->getName() === 'omp' ? 'publication_formats' : 'publication_galleys';
+            DB::table($representationsTable)
                 ->whereIn('publication_id', $publicationIds)
                 ->lockForUpdate()
                 ->get();

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace APP\plugins\generic\deleteIncompleteSubmissions\classes;
 
+use APP\core\Application;
 use APP\submission\Submission;
 
 class SubmissionDeletionPolicy
@@ -65,13 +66,14 @@ class SubmissionDeletionPolicy
                 return false;
             }
 
-            $galleys = $publication->getData('galleys');
-            if (!is_iterable($galleys)) {
+            $representationsKey = Application::get()->getName() === 'omp' ? 'publicationFormats' : 'galleys';
+            $representations = $publication->getData($representationsKey);
+            if (!is_iterable($representations)) {
                 return false;
             }
 
-            foreach ($galleys as $galley) {
-                if ($galley->getData('doiId') !== null) {
+            foreach ($representations as $representation) {
+                if ($representation->getData('doiId') !== null) {
                     return false;
                 }
             }

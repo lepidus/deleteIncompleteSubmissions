@@ -12,6 +12,7 @@ This plugin is compatible with the following PKP applications:
 
 - OJS 3.4.0
 - OPS 3.4.0
+- OMP 3.4.0
 
 In OJS 3.5, this functionality is available as a native feature:
 > Bulk delete incomplete submission: Journal Managers and Editors can remove all submissions with the Incomplete status by pressing the three dots next to the “Filter” button and choosing “Delete Incomplete Submissions”.
