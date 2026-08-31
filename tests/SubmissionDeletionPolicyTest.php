@@ -125,7 +125,8 @@ class SubmissionDeletionPolicyTest extends TestCase
 
     private function submission(array $overrides = [], ?array $publications = null): Submission
     {
-        return new Submission(array_merge(
+        $submission = new Submission();
+        $submission->setAllData(array_merge(
             $this->submissionData(),
             $overrides,
             [
@@ -135,6 +136,8 @@ class SubmissionDeletionPolicyTest extends TestCase
                 ),
             ]
         ));
+
+        return $submission;
     }
 
     private function publicationData(array $overrides = []): array
